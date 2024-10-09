@@ -29,9 +29,9 @@ public class PlatformerMovement : MonoBehaviour
 
     void Update()
     {
-        if (rolling > 0f)
+        if (rolling > 0f) // if a player is dodging
         {
-            rolling -= Time.deltaTime;
+            rolling -= Time.deltaTime; // count down the dodging timer
         }
         else
         {
@@ -47,12 +47,12 @@ public class PlatformerMovement : MonoBehaviour
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
             grounded = false;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0)
+        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0) // if you're moving, grounded, have no cooldown, and press LShift
         {
          rb.velocity.Normalize();
-         rb.velocity += new Vector2(moveX * dashSpeed, velocity.y * dashSpeed);
-         coolDown = coolDownMax;
-         rolling = rollingMax;
+         rb.velocity += new Vector2(moveX * dashSpeed, velocity.y * dashSpeed); // add to the players velocity with the value "dashSpeed" 
+         coolDown = coolDownMax; // reset the timer
+         rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
         }
         else
         {

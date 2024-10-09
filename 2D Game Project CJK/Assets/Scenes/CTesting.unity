@@ -703,8 +703,9 @@ GameObject:
   - component: {fileID: 1553831922}
   - component: {fileID: 1553831921}
   - component: {fileID: 1553831923}
+  - component: {fileID: 1553831924}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,7 +858,20 @@ MonoBehaviour:
   rolling: 0
   coolDown: 0
   coolDownMax: 1.5
-  dashSpeed: 5
+  dashSpeed: 7
+--- !u!114 &1553831924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553831917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 125b7f96e9cc26f4d9ce63e9f19ceff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parrying: 0
 --- !u!1 &1770531453
 GameObject:
   m_ObjectHideFlags: 0
