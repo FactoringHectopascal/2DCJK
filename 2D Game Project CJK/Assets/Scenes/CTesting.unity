@@ -449,7 +449,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278889734}
   m_CullTransparentMesh: 1
---- !u!1 &655895647
+--- !u!1 &327735299
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,25 +457,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 655895648}
+  - component: {fileID: 327735300}
   m_Layer: 0
-  m_Name: AttackCenter
+  m_Name: attackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &655895648
+--- !u!4 &327735300
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655895647}
+  m_GameObject: {fileID: 327735299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16, y: -0.12, z: 0.04974906}
-  m_LocalScale: {x: 0.30949518, y: 0.40816325, z: 1}
+  m_LocalPosition: {x: 0.17, y: -0.04, z: 0.071576305}
+  m_LocalScale: {x: 0.24889423, y: 0.3018659, z: 1.0354}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1553831919}
@@ -737,9 +737,9 @@ GameObject:
   - component: {fileID: 1553831922}
   - component: {fileID: 1553831923}
   - component: {fileID: 1553831924}
-  - component: {fileID: 1553831925}
   - component: {fileID: 1553831926}
   - component: {fileID: 1553831927}
+  - component: {fileID: 1553831929}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -812,7 +812,7 @@ Transform:
   m_LocalScale: {x: 4.16, y: 3.43, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 655895648}
+  - {fileID: 327735300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1553831922
@@ -841,7 +841,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1553831923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,24 +874,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parrying: 0
---- !u!114 &1553831925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553831917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5440a1c5db9ed404fbbaa35bd7189541, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1553831927}
-  attackCenter: {fileID: 655895647}
-  attackRadius: 0.5
-  enemies:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!61 &1553831926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -958,6 +940,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1553831929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553831917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5440a1c5db9ed404fbbaa35bd7189541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1553831927}
+  attackCenter: {fileID: 327735299}
+  attackRadius: 0.3
+  enemies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1770531453
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +969,7 @@ GameObject:
   - component: {fileID: 1770531455}
   - component: {fileID: 1770531454}
   - component: {fileID: 1770531456}
+  - component: {fileID: 1770531457}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
@@ -1088,6 +1089,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1770531457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770531453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac38866549c68d4580999bff644a54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealthValue: 20
 --- !u!1 &1822954697
 GameObject:
   m_ObjectHideFlags: 0

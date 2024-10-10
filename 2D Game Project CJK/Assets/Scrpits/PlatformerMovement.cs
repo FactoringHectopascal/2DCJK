@@ -47,7 +47,7 @@ public class PlatformerMovement : MonoBehaviour
             rb.AddForce(new Vector2(0, 100 * jumpSpeed));
             grounded = false;
         }
-        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0) // if you're moving, grounded, have no cooldown, and press LShift
+        if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && velocity.y == 0) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
         {
          rb.velocity.Normalize();
          rb.velocity += new Vector2(moveX * dashSpeed, velocity.y * dashSpeed); // add to the players velocity with the value "dashSpeed" 

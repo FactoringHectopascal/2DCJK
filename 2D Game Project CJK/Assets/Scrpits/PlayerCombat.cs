@@ -9,11 +9,16 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     float attackRadius;
     [SerializeField]
-    LayerMask enemies;
+    LayerMask enemiesLayer;
+    [SerializeField]
+    float attackRateCurrent = 0f;
+    [SerializeField]
+    float attackRate = 1;
 
     private void Start()
     {
        animator = GetComponent<Animator>();
+       GetComponent<EnemyHealth>();
     }
     void Update()
     {
@@ -21,18 +26,24 @@ public class PlayerCombat : MonoBehaviour
         {
             Attack();
         }
+        else
+        {
+            attackRateCurrent -= Time.deltaTime;
+        }
     }
-    public void AttackEnd()
-    {
-        animator.SetBool("isAttacking", false);
-    }
+
     public void Attack()
     {
-        animator.SetBool("isAttacking", true);
-        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemies);
-        foreach(Collider2D enemyObject in enemy)
+        if(attackRateCurrent == 0f)
         {
-            Debug.Log("You Hit Someone, monster.");
+        animator.SetTrigger("IsAttacking");
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
+        foreach(Collider2D enemy in enemies)
+        {
+            Debug.Log("HitEnemy");
+        }
+        attackRateCurrent = attackRate;
+
         }
     }
     private void OnDrawGizmos()
