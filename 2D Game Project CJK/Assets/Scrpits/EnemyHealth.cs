@@ -9,19 +9,19 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-   public void Update()
+    public void Update()
     {
-        if(enemyHealthValue <= 0)
+        if (enemyHealthValue <= 0)
         {
             Destroy(gameObject);
         }
     }
     public void TakeDamage()
     {
-        enemyHealthValue -= 20;
+        enemyHealthValue -= 5;
     }
 }

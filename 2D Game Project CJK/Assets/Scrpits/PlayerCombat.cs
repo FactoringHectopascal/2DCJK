@@ -10,10 +10,6 @@ public class PlayerCombat : MonoBehaviour
     float attackRadius;
     [SerializeField]
     LayerMask enemiesLayer;
-    [SerializeField]
-    float attackRateCurrent = 0f;
-    [SerializeField]
-    float attackRate = 1;
 
     private void Start()
     {
@@ -22,29 +18,23 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        if (UnityEngine.Input.GetKey(KeyCode.R))
+        if (UnityEngine.Input.GetKeyDown(KeyCode.R))
         {
             Attack();
-        }
-        else
-        {
-            attackRateCurrent -= Time.deltaTime;
         }
     }
 
     public void Attack()
     {
-        if(attackRateCurrent == 0f)
-        {
+
         animator.SetTrigger("IsAttacking");
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
+        Debug.Log(enemies.Length);
         foreach(Collider2D enemy in enemies)
         {
-            Debug.Log("HitEnemy");
+            enemy.GetComponent<EnemyHealth>().TakeDamage();
         }
-        attackRateCurrent = attackRate;
 
-        }
     }
     private void OnDrawGizmos()
     {
