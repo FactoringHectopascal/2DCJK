@@ -1,20 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
     [SerializeField]
-    public float attackRange = 5f;
-    GameObject attackPoint;
+    Animator animator;
+    [SerializeField]
+    GameObject attackCenter;
+    [SerializeField]
+    float attackRadius;
+    [SerializeField]
+    LayerMask enemies;
+
+    private void Start()
+    {
+       animator = GetComponent<Animator>();
+    }
     void Update()
     {
-        if (UnityEngine.Input.GetKey(KeyCode.Mouse3))
+        if (UnityEngine.Input.GetKey(KeyCode.R))
         {
-            LayerMask enemy = LayerMask.GetMask("Enemy");
-            Physics2D.OverlapCircle(attackPoint.transform.position, attackRange, enemy);
-            
+            Attack();
         }
-   
+    }
+    public void AttackEnd()
+    {
+        animator.SetBool("isAttacking", false);
+    }
+    public void Attack()
+    {
+        animator.SetBool("isAttacking", true);
+        Collider2D[] enemy = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemies);
+        foreach(Collider2D enemyObject in enemy)
+        {
+            Debug.Log("You Hit Someone, monster.");
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackCenter.transform.position, attackRadius);
     }
 }
