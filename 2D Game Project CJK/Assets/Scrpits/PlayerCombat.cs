@@ -5,16 +5,20 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     Animator animator;
     [SerializeField]
-    GameObject attackCenter;
+    public GameObject attackCenter;
     [SerializeField]
     float attackRadius;
     [SerializeField]
     LayerMask enemiesLayer;
+    public PlatformerMovement player;
+    bool left;
+    bool right;
 
     private void Start()
     {
-       animator = GetComponent<Animator>();
-       GetComponent<EnemyHealth>();
+        animator = GetComponent<Animator>();
+        GetComponent<EnemyHealth>();
+        GetComponent<PlatformerMovement>();
     }
     void Update()
     {
@@ -30,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("IsAttacking");
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
         Debug.Log(enemies.Length);
-        foreach(Collider2D enemy in enemies)
+        foreach (Collider2D enemy in enemies)
         {
             enemy.GetComponent<EnemyHealth>().TakeDamage();
         }
