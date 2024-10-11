@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -17,13 +15,16 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "EnemySomething")
+        if (health <= 0)
         {
-            health -= 1; // or literally whatever value depending on the attack
+            Debug.Log("You Died!");
         }
     }
+    public void PlayerTakeDamage()
+    {
+        health -= 1;
+    }
 }
+
+
+

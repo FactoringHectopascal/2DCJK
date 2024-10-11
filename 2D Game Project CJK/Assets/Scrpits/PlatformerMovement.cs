@@ -53,18 +53,18 @@ public class PlatformerMovement : MonoBehaviour
             }
             else
             {
-                coolDown -= Time.deltaTime;
+                coolDown -= Time.deltaTime; // count down the timer
             }
         }
-        int x = (int)UnityEngine.Input.GetAxisRaw("Horizontal");
+        int x = (int)UnityEngine.Input.GetAxisRaw("Horizontal"); // declares x 
         if (x < 0)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 180, 0); // flip the player
 
         }
         else if (x > 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, 0, 0); // do not flip the player, he don't need it.
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

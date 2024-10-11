@@ -11,8 +11,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     LayerMask enemiesLayer;
     public PlatformerMovement player;
-    bool left;
-    bool right;
+
 
     private void Start()
     {
