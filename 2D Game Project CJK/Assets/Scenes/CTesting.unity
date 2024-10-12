@@ -888,10 +888,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1623363248643200878, guid: dd293348666abd345b8d997921750b7d, type: 3}
-      propertyPath: coolDownMax
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2427403878630690273, guid: dd293348666abd345b8d997921750b7d, type: 3}
       propertyPath: m_Name
       value: Enemy Test
@@ -935,6 +931,14 @@ PrefabInstance:
     - target: {fileID: 3584529100089150037, guid: dd293348666abd345b8d997921750b7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211726987627170233, guid: dd293348666abd345b8d997921750b7d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.721076
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211726987627170233, guid: dd293348666abd345b8d997921750b7d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.01656425
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

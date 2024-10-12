@@ -22,7 +22,14 @@ public class PlayerHealth : MonoBehaviour
     }
     public void PlayerTakeDamage()
     {
-        health -= 1;
+        if (GetComponent<PlatformerMovement>().rolling > 0f)
+        {
+            return;
+        }
+        else
+        {
+            health -= 1;
+        }
     }
 }
 

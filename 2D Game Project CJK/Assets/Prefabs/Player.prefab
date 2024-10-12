@@ -184,6 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parrying: 0
+  parryTime: 5
+  parryCoolDownMax: 0.5
+  anim: {fileID: 917523999135664958}
 --- !u!61 &353101312621840467
 BoxCollider2D:
   m_ObjectHideFlags: 0

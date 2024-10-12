@@ -37,7 +37,6 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         //if the player gets too close
-        //float distanceToPlayer = 0.0f; declared when not necessary. - Mr. Adelmund
         Vector3 playerPosition = new Vector2(player.transform.position.x, transform.position.y);
         Vector3 chaseDir = playerPosition - transform.position;
         Vector3 homeDir = home - transform.position;
@@ -86,7 +85,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (coolDown <= 0)
         {
-            
             anim.SetTrigger("attacking");
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
@@ -95,6 +93,5 @@ public class EnemyAI : MonoBehaviour
             }
             coolDown = coolDownMax;
         }
-
     }
 }

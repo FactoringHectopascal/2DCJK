@@ -203,6 +203,8 @@ MonoBehaviour:
   playerAttackCenter: {fileID: 9124351269729122929}
   playerAttackRadius: 1
   anim: {fileID: 6415999542427433433}
+  coolDown: 0
+  coolDownMax: 2
 --- !u!50 &935837588808126559
 Rigidbody2D:
   serializedVersion: 4
