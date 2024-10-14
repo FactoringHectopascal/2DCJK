@@ -17,6 +17,8 @@ public class PlatformerMovement : MonoBehaviour
     float coolDownMax = 1.5f;
     [SerializeField]
     int dashSpeed = 5;
+    [SerializeField]
+    bool jumping;
 
     public void Start()
     {
@@ -42,13 +44,20 @@ public class PlatformerMovement : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, 100 * jumpSpeed));
                 grounded = false;
+                jumping = true;
             }
 
-
+            if(UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
+            {
+                rb.velocity.Normalize();
+                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
+                coolDown = coolDownMax; // reset the timer
+                rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
+            }
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
             {
                 rb.velocity.Normalize();
-                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y * dashSpeed); // add to the players velocity with the value "dashSpeed" 
+                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
             }
@@ -67,6 +76,7 @@ public class PlatformerMovement : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, 0, 0); // do not flip the player, he don't need it.
         }
+        JumpCheck();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -87,6 +97,17 @@ public class PlatformerMovement : MonoBehaviour
         if (collision.gameObject.layer == 6)
         {
             grounded = true;
+        }
+    }
+    private void JumpCheck()
+    {
+        if (grounded)
+        {
+            jumping = false;
+        }
+        if (jumping)
+        {
+            grounded = false;
         }
     }
 }
