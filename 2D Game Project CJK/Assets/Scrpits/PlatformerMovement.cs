@@ -19,10 +19,13 @@ public class PlatformerMovement : MonoBehaviour
     int dashSpeed = 5;
     [SerializeField]
     bool jumping;
+    GameObject attackCenter;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        GetComponent<PlayerCombat>();
+        attackCenter = GetComponent<PlayerCombat>().attackCenter;
     }
 
     void Update()
@@ -50,7 +53,7 @@ public class PlatformerMovement : MonoBehaviour
             if(UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
             {
                 rb.velocity.Normalize();
-                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
+                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y = 0); // add to the players velocity with the value "dashSpeed" 
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
             }
@@ -65,18 +68,18 @@ public class PlatformerMovement : MonoBehaviour
             {
                 coolDown -= Time.deltaTime; // count down the timer
             }
-        }
-        int x = (int)UnityEngine.Input.GetAxisRaw("Horizontal"); // declares x 
-        if (x < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0); // flip the player
-
-        }
-        else if (x > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0); // do not flip the player, he don't need it.
+            int x = (int)Input.GetAxisRaw("Horizontal");
+            if(x < 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
         JumpCheck();
+        Flip();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -108,6 +111,18 @@ public class PlatformerMovement : MonoBehaviour
         if (jumping)
         {
             grounded = false;
+        }
+    }
+    public void Flip()
+    {
+            int x = (int)Input.GetAxisRaw("Horizontal");
+            if(x > 0)
+            {
+            attackCenter.transform.localPosition = new Vector2(Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
+            }
+            else if (x < 0)
+            {
+            attackCenter.transform.localPosition = new Vector2(-Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
         }
     }
 }

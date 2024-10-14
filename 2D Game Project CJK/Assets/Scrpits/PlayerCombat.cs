@@ -1,3 +1,4 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -30,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
             Attack();
         }
         AttackRate();
+
     }
 
     public void Attack()
@@ -55,4 +57,5 @@ public class PlayerCombat : MonoBehaviour
     {
         timer += Time.deltaTime;
     }
+
 }
