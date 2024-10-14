@@ -1,3 +1,4 @@
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -11,6 +12,10 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     LayerMask enemiesLayer;
     public PlatformerMovement player;
+    [SerializeField]
+    float attackRate = 0.5f;
+    [SerializeField]
+    float timer;
 
 
     private void Start()
@@ -25,22 +30,32 @@ public class PlayerCombat : MonoBehaviour
         {
             Attack();
         }
+        AttackRate();
+
     }
 
     public void Attack()
     {
-
-        animator.SetTrigger("IsAttacking");
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
-        Debug.Log(enemies.Length);
-        foreach (Collider2D enemy in enemies)
+        if(timer > attackRate)
         {
-            enemy.GetComponent<EnemyHealth>().TakeDamage();
+            timer = 0f;
+            animator.SetTrigger("IsAttacking");
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
+            Debug.Log(enemies.Length);
+            foreach (Collider2D enemy in enemies)
+            {
+                enemy.GetComponent<EnemyHealth>().TakeDamage();
+            }
         }
-
     }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackCenter.transform.position, attackRadius);
     }
+    
+    private void AttackRate()
+    {
+        timer += Time.deltaTime;
+    }
+
 }
