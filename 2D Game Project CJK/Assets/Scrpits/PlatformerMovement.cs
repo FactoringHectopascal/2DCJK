@@ -44,6 +44,7 @@ public class PlatformerMovement : MonoBehaviour
                 grounded = false;
             }
 
+
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
             {
                 rb.velocity.Normalize();

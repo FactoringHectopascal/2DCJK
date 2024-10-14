@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!50 &6580403 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 935837588808126559, guid: dd293348666abd345b8d997921750b7d, type: 3}
+  m_PrefabInstance: {fileID: 349490585554096410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &42572861
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +164,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000008d5e084d
   m_LightCookieSprite: {fileID: 21300000, guid: 119f93d0bcbf1e743bf5fcf237507d39, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -888,6 +893,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1725296028396916483, guid: dd293348666abd345b8d997921750b7d, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 6580403}
+    - target: {fileID: 1725296028396916483, guid: dd293348666abd345b8d997921750b7d, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725296028396916483, guid: dd293348666abd345b8d997921750b7d, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2427403878630690273, guid: dd293348666abd345b8d997921750b7d, type: 3}
       propertyPath: m_Name
       value: Enemy Test
@@ -953,6 +970,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2249738213493415407, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
+      propertyPath: dashTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249738213493415407, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
+      propertyPath: dashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249738213493415407, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
+      propertyPath: rollingMax
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8815167206244092693, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6

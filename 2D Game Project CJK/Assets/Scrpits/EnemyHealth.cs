@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     public float enemyHealthValue = 20;
+
     // Start is called before the first frame update
     void Start()
     {

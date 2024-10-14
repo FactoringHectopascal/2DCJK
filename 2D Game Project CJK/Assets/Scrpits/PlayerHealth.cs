@@ -26,6 +26,10 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
+        else if (GetComponent<Parry>().isParrying == true)
+        {
+            return;
+        }
         else
         {
             health -= 1;
