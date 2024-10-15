@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlatformerMovement : MonoBehaviour
 {
-    // change the values to the scale of the player.
     [SerializeField]
     float moveSpeed = 1.0f;
     [SerializeField]
@@ -21,6 +20,7 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField]
     bool jumping;
     GameObject attackCenter;
+    GameObject hitbox;
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -117,11 +117,13 @@ public class PlatformerMovement : MonoBehaviour
         int x = (int)Input.GetAxisRaw("Horizontal");
         if (x > 0)
         {
-            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(4.16f, 3.43f, 1); ; // change these values to the scale of the player
+            attackCenter.transform.localPosition = new Vector2(Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (x < 0)
         {
-            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(-4.16f, 3.43f, 1); // change these values to the scale of the player PLEASE
+            attackCenter.transform.localPosition = new Vector2(-Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 }
