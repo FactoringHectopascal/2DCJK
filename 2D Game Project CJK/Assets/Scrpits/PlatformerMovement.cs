@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlatformerMovement : MonoBehaviour
 {
+    // change the values to the scale of the player.
     [SerializeField]
     float moveSpeed = 1.0f;
     [SerializeField]
@@ -20,12 +21,12 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField]
     bool jumping;
     GameObject attackCenter;
-
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         GetComponent<PlayerCombat>();
         attackCenter = GetComponent<PlayerCombat>().attackCenter;
+        GetComponent<PlatformerMovement>();
     }
 
     void Update()
@@ -45,12 +46,15 @@ public class PlatformerMovement : MonoBehaviour
             // jump when we hit spacebar 
             if (UnityEngine.Input.GetKey(KeyCode.Space) && grounded)
             {
+                velocity.y = 0;
                 rb.AddForce(new Vector2(0, 100 * jumpSpeed));
+                velocity.x = 0;
                 grounded = false;
                 jumping = true;
+                rb.gravityScale = 1.6f;
             }
 
-            if(UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
+            if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
             {
                 rb.velocity.Normalize();
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y = 0); // add to the players velocity with the value "dashSpeed" 
@@ -68,15 +72,10 @@ public class PlatformerMovement : MonoBehaviour
             {
                 coolDown -= Time.deltaTime; // count down the timer
             }
-            int x = (int)Input.GetAxisRaw("Horizontal");
-            if(x < 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-            }
-            else if (x > 0)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-            }
+        }
+        if (grounded == true)
+        {
+            rb.gravityScale = 1;
         }
         JumpCheck();
         Flip();
@@ -115,14 +114,14 @@ public class PlatformerMovement : MonoBehaviour
     }
     public void Flip()
     {
-            int x = (int)Input.GetAxisRaw("Horizontal");
-            if(x > 0)
-            {
-            attackCenter.transform.localPosition = new Vector2(Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
-            }
-            else if (x < 0)
-            {
-            attackCenter.transform.localPosition = new Vector2(-Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
+        int x = (int)Input.GetAxisRaw("Horizontal");
+        if (x > 0)
+        {
+            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(4.16f, 3.43f, 1); ; // change these values to the scale of the player
+        }
+        else if (x < 0)
+        {
+            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(-4.16f, 3.43f, 1); // change these values to the scale of the player PLEASE
         }
     }
 }

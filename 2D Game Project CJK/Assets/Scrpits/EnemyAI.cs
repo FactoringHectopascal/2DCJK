@@ -58,27 +58,33 @@ public class EnemyAI : MonoBehaviour
             //if the player is NOT close, stop moving & we're not trying to return home, stop moving
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
+
         Collider2D[] playerDetection = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, playerLayer); //adds a detection circle around the enemy
-        foreach (Collider2D player in playerDetection) // for every player returned in the playerDetection array (there will only be one)
+        foreach (Collider2D player in playerDetection)
         {
             EnemyAttack();
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
-        int x = (int)player.transform.position.x;
+
+        float turnDir = player.transform.position.x - transform.position.x;
+        int x = (int)turnDir;
         if (x < 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
+            GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else if (x > 0)
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(-playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         coolDown -= Time.deltaTime;
     }
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackCenter.transform.position, attackRadius);
+        Gizmos.DrawWireSphere(playerAttackCenter.transform.position, playerAttackRadius);
     }
     public void EnemyAttack()
     {
