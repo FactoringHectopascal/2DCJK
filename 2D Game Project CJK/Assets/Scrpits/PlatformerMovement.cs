@@ -110,4 +110,20 @@ public class PlatformerMovement : MonoBehaviour
             grounded = false;
         }
     }
+<<<<<<< Updated upstream
 }
+=======
+    public void Flip()
+    {
+        int x = (int)Input.GetAxisRaw("Horizontal");
+        if (x > 0)
+        {
+            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(4.16f, 3.43f, 1); ; // change these values to the scale of the player
+        }
+        else if (x < 0)
+        {
+            GetComponent<SpriteRenderer>().transform.localScale = new Vector3(-4.16f, 3.43f, 1); // change these values to the scale of the player PLEASE
+        }
+    }
+}
+>>>>>>> Stashed changes
