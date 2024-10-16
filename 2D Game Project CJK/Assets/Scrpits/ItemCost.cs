@@ -13,6 +13,7 @@ public class ItemCost : MonoBehaviour
     [SerializeField]
     int playerCurrentMoney;
     MoneySystem moneySystem;
+    PlayerItemBehavior playerItemBehavior;
     void Start()
     {
         moneySystem = player.GetComponent<MoneySystem>();
@@ -20,10 +21,6 @@ public class ItemCost : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void OnTriggerStay2D(Collider2D collision)
     {
