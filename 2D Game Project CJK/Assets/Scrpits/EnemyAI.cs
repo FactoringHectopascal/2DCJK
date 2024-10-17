@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     float coolDownMax = 5f;
     bool grounded;
+    Rigidbody2D eRB;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         home = transform.position;
         Physics2D.IgnoreLayerCollision(7, 7);
+        eRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -47,29 +50,29 @@ public class EnemyAI : MonoBehaviour
             //chase direction = players position - my current position
             //move in the direction of the player
             chaseDir.Normalize();
-            GetComponent<Rigidbody2D>().velocity = chaseDir * chaseSpeed;
+            eRB.velocity = chaseDir * chaseSpeed;
         }
         else if (returnHome && homeDir.magnitude > 0.2f && grounded == true)
         {
             //return home
             homeDir.Normalize();
-            GetComponent<Rigidbody2D>().velocity = homeDir * chaseSpeed;
+            eRB.velocity = homeDir * chaseSpeed;
         }
         else
         {
             //if the player is NOT close, stop moving & we're not trying to return home, stop moving
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            eRB.velocity = Vector3.zero;
         }
         if(grounded == false)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            GetComponent<Rigidbody2D>().gravityScale = 25f;
+            eRB.velocity = Vector3.zero;
+            eRB.gravityScale = 25f;
         }
         Collider2D[] playerDetection = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, playerLayer); //adds a detection circle around the enemy
         foreach (Collider2D player in playerDetection)
         {
             EnemyAttack();
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            eRB.velocity = Vector3.zero;
         }
 
         float turnDir = player.transform.position.x - transform.position.x;
