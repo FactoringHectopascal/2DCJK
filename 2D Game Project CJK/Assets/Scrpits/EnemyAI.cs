@@ -70,13 +70,13 @@ public class EnemyAI : MonoBehaviour
         int x = (int)turnDir;
         if (x < 0)
         {
-            playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
+            playerAttackCenter.transform.localPosition = new Vector2(-Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
             GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else if (x > 0)
         {
-            playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(-playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
+            playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
             GetComponent<SpriteRenderer>().flipX = true;
         }
         coolDown -= Time.deltaTime;
