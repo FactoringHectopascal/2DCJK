@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlatformerMovement : MonoBehaviour
 {
@@ -20,10 +21,11 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField]
     bool jumping;
     GameObject attackCenter;
-    GameObject hitbox;
     Animator anim;
     public int jumpsLeft;
     public int jumpsMax = 1;
+    [SerializeField]
+    Image dashCooldownBar;
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -73,6 +75,7 @@ public class PlatformerMovement : MonoBehaviour
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y = 0); // add to the players velocity with the value "dashSpeed" 
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
+                Physics2D.IgnoreLayerCollision(7, 8, true);
             }
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
             {
@@ -80,10 +83,12 @@ public class PlatformerMovement : MonoBehaviour
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
+                Physics2D.IgnoreLayerCollision(7, 8, true);
             }
             else
             {
                 coolDown -= Time.deltaTime; // count down the timer
+                Physics2D.IgnoreLayerCollision(7, 8, false);
             }
         }
         if (grounded == true)
@@ -92,6 +97,7 @@ public class PlatformerMovement : MonoBehaviour
         }
         JumpCheck();
         Flip();
+        dashCooldownBar.fillAmount = coolDownMax - coolDown;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

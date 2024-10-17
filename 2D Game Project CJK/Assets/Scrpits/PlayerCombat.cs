@@ -8,18 +8,16 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     public GameObject attackCenter;
     [SerializeField]
-    float attackRadius;
+    public float attackRadius;
     [SerializeField]
     LayerMask enemiesLayer;
     public PlatformerMovement player;
     [SerializeField]
-    float attackRate = 0.5f;
+    public float attackRate = 0.5f;
     [SerializeField]
-    float timer;
+    public float timer;
     [SerializeField]
     GameObject sword;
-    bool facingRight;
-    bool facingLeft;
     SpriteRenderer swordSpriteRenderer;
 
     private void Start()
@@ -43,8 +41,8 @@ public class PlayerCombat : MonoBehaviour
     {
         if (timer > attackRate)
         {
-            swordAnim.SetTrigger("attacking");
             timer = 0f;
+            swordAnim.SetTrigger("attacking");
             Collider2D[] enemies = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, enemiesLayer);
             Debug.Log(enemies.Length);
             foreach (Collider2D enemy in enemies)

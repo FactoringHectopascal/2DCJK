@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2912425056436266789}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: attackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,8 +187,8 @@ GameObject:
   - component: {fileID: 9119654591737185306}
   - component: {fileID: 7573148440776237079}
   - component: {fileID: 7246941358816906095}
-  - component: {fileID: 1594442091045255649}
   - component: {fileID: 2719172757392937948}
+  - component: {fileID: 6633754433276364784}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -446,20 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e7d8fb8891b6846a55ef8e9683453d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStartingMoney: 5
+  playerStartingMoney: 0
   playerCurrentMoney: 0
---- !u!114 &1594442091045255649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199821735871390727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd05053ab32726a44a3c6080fa076104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &2719172757392937948
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -495,3 +483,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0.004841983, y: 0}
   m_Size: {x: 0.61798525, y: 1}
   m_Direction: 0
+--- !u!114 &6633754433276364784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199821735871390727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 000000008d5e084d
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -34944
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0.5, z: 0}

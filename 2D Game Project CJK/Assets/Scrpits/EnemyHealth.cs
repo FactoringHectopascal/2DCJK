@@ -4,7 +4,8 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
     public float enemyHealthValue = 20;
-
+    [SerializeField]
+    GameObject coin;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (enemyHealthValue <= 0)
         {
+            Instantiate(coin, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

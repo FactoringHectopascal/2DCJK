@@ -25,11 +25,13 @@ public class EnemyAI : MonoBehaviour
     float coolDown = 0f;
     [SerializeField]
     float coolDownMax = 5f;
+    bool grounded;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         home = transform.position;
+        Physics2D.IgnoreLayerCollision(7, 7);
     }
 
     // Update is called once per frame
@@ -37,9 +39,9 @@ public class EnemyAI : MonoBehaviour
     {
         //if the player gets too close
         Vector3 playerPosition = new Vector2(player.transform.position.x, transform.position.y);
-        Vector3 chaseDir = playerPosition - transform.position;
+        Vector2 chaseDir = playerPosition - transform.position;
         Vector3 homeDir = home - transform.position;
-        if (chaseDir.magnitude < ChaseTriggerDistance)
+        if (chaseDir.magnitude < ChaseTriggerDistance && grounded == true)
         {
             //chase the player
             //chase direction = players position - my current position
@@ -47,7 +49,7 @@ public class EnemyAI : MonoBehaviour
             chaseDir.Normalize();
             GetComponent<Rigidbody2D>().velocity = chaseDir * chaseSpeed;
         }
-        else if (returnHome && homeDir.magnitude > 0.2f)
+        else if (returnHome && homeDir.magnitude > 0.2f && grounded == true)
         {
             //return home
             homeDir.Normalize();
@@ -58,7 +60,11 @@ public class EnemyAI : MonoBehaviour
             //if the player is NOT close, stop moving & we're not trying to return home, stop moving
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
-
+        if(grounded == false)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().gravityScale = 25f;
+        }
         Collider2D[] playerDetection = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, playerLayer); //adds a detection circle around the enemy
         foreach (Collider2D player in playerDetection)
         {
@@ -97,6 +103,27 @@ public class EnemyAI : MonoBehaviour
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage();
             }
             coolDown = coolDownMax;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            grounded = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            grounded = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            grounded = true;
         }
     }
 }

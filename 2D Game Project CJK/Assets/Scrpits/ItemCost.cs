@@ -34,9 +34,11 @@ public class ItemCost : MonoBehaviour
             {
                 case 1:
                     player.GetComponent<PlatformerMovement>().jumpsMax += 1;
+                    Debug.Log("Purchased Extra Jump");
                     break;
                 case 2:
-                    Debug.Log("Bruh");
+                    player.GetComponent<PlayerCombat>().attackRate -= 0.05f;
+                    Debug.Log("Purchased attackRate Buff");
                     break;
             }
             Destroy(gameObject);
