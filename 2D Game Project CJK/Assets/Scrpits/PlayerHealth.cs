@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     public float health = 10;
     [SerializeField]
     public float maxHealth = 10;
+    [SerializeField]
+    Image healthBar;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             health -= 1;
+            healthBar.fillAmount = health / maxHealth;
         }
     }
 }
