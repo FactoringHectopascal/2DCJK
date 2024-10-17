@@ -134,8 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac38866549c68d4580999bff644a54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealthValue: 5
+  enemyHealthValue: 50
   coin: {fileID: 5059283164254345577, guid: 7f7dd740582b259448b30eab55243ce8, type: 3}
+  eRB: {fileID: 935837588808126559}
+  knockBack: 50
 --- !u!114 &1623363248643200878
 MonoBehaviour:
   m_ObjectHideFlags: 0
