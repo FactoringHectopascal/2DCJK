@@ -25,7 +25,6 @@ public class Parry : MonoBehaviour
             isParrying = false;
             if (UnityEngine.Input.GetKeyDown(KeyCode.Mouse1) && parryCoolDownCurrent <= 0) // if you press the key and there's no cooldown
             {
-                anim.SetTrigger("Parry");
                 Debug.Log("Parry!"); //Do Something, Like Negate Damage.
                 parryCoolDownCurrent = parryCoolDownMax; // reset the cooldown
                 parrying = parryTime; // start the timer for parrying

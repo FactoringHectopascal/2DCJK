@@ -13,11 +13,11 @@ public class ItemCost : MonoBehaviour
     [SerializeField]
     int playerCurrentMoney;
     MoneySystem moneySystem;
-    PlayerItemBehavior playerItemBehavior;
+    
     void Start()
     {
         moneySystem = player.GetComponent<MoneySystem>();
-        playerCurrentMoney = (int)moneySystem.playerCurrentMoney;
+        playerCurrentMoney = moneySystem.playerCurrentMoney;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -27,22 +27,19 @@ public class ItemCost : MonoBehaviour
         playerCurrentMoney = moneySystem.playerCurrentMoney;
         if(playerCurrentMoney >= itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
-            Debug.Log("E");
+            Debug.Log("A Successful Purchase!");
+            playerCurrentMoney -= itemCost;
+            moneySystem.playerCurrentMoney = playerCurrentMoney;
             switch (itemNumberSet)
             {
                 case 1:
-                    player.GetComponent<PlayerItemBehavior>().doubleJump = true;
-                    playerCurrentMoney -= itemCost;
-                    moneySystem.playerCurrentMoney = playerCurrentMoney;
-                    Destroy(gameObject);
+                    player.GetComponent<PlatformerMovement>().jumpsMax += 1;
                     break;
                 case 2:
-                    player.GetComponent<PlayerItemBehavior>().regen = true;
-                    playerCurrentMoney -= itemCost;
-                    moneySystem.playerCurrentMoney = playerCurrentMoney;
-                    Destroy(gameObject);
+                    Debug.Log("Bruh");
                     break;
             }
+            Destroy(gameObject);
         }
         else if(playerCurrentMoney < itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {

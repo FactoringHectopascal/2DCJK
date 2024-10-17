@@ -21,12 +21,17 @@ public class PlatformerMovement : MonoBehaviour
     bool jumping;
     GameObject attackCenter;
     GameObject hitbox;
+    Animator anim;
+    public int jumpsLeft;
+    public int jumpsMax = 1;
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         GetComponent<PlayerCombat>();
         attackCenter = GetComponent<PlayerCombat>().attackCenter;
         GetComponent<PlatformerMovement>();
+        anim = GetComponent<Animator>();
+        jumpsLeft = jumpsMax;
     }
 
     void Update()
@@ -37,21 +42,29 @@ public class PlatformerMovement : MonoBehaviour
         }
         else
         {
-
             // left and right movement based on horizontal axis input
             float moveX = UnityEngine.Input.GetAxisRaw("Horizontal");
             Vector2 velocity = rb.velocity;
             velocity.x = moveX * moveSpeed;
             rb.velocity = velocity;
+            anim.SetBool("grounded", grounded);
+            anim.SetFloat("y", velocity.y);
+            int x = (int)Input.GetAxisRaw("Horizontal");
+            anim.SetInteger("x", x);
             // jump when we hit spacebar 
-            if (UnityEngine.Input.GetKey(KeyCode.Space) && grounded)
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
             {
+                jumpsLeft -= 1;
                 velocity.y = 0;
-                rb.AddForce(new Vector2(0, 100 * jumpSpeed));
+                rb.AddForce(new Vector2(0, 90 * jumpSpeed));
                 velocity.x = 0;
                 grounded = false;
                 jumping = true;
                 rb.gravityScale = 1.6f;
+            }
+            if (grounded == true)
+            {
+                jumpsLeft = jumpsMax;
             }
 
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
@@ -126,4 +139,5 @@ public class PlatformerMovement : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = true;
         }
     }
+
 }

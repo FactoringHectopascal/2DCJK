@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerJump
+  m_Name: SwordDown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 113272084, guid: 1280ba36f79f6ba46bc3b34b5a113f34, type: 3}
+      value: {fileID: 2143688775, guid: 95569d5046ab3b34d8b6be306c1831c3, type: 3}
     - time: 0.083333336
-      value: {fileID: 130100669, guid: 1280ba36f79f6ba46bc3b34b5a113f34, type: 3}
+      value: {fileID: -1166255731, guid: 95569d5046ab3b34d8b6be306c1831c3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 113272084, guid: 1280ba36f79f6ba46bc3b34b5a113f34, type: 3}
-    - {fileID: 130100669, guid: 1280ba36f79f6ba46bc3b34b5a113f34, type: 3}
+    - {fileID: 2143688775, guid: 95569d5046ab3b34d8b6be306c1831c3, type: 3}
+    - {fileID: -1166255731, guid: 95569d5046ab3b34d8b6be306c1831c3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
