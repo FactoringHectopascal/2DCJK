@@ -49,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (facingRight)
         {
-            eRB.AddForce(new Vector2(-50 * knockBack, -20 * knockBack));
+            eRB.AddForce(new Vector2(-50 * knockBack, 20 * knockBack));
         }
     }
 }

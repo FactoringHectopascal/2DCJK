@@ -315,6 +315,7 @@ MonoBehaviour:
   jumping: 0
   jumpsLeft: 1
   jumpsMax: 1
+  dashCooldownBar: {fileID: 0}
 --- !u!114 &3520425735236059049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +435,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   maxHealth: 10
+  healthBar: {fileID: 0}
+  text: {fileID: 0}
+  rb: {fileID: 4681358462963068688}
+  knockBack: 9
+  iFramesDuration: 2
+  numOfFlashes: 6
 --- !u!114 &7246941358816906095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +516,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -34944
+  m_InstanceId: -1746
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}

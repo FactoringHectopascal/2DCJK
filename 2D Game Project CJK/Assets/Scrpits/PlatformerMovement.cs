@@ -34,6 +34,7 @@ public class PlatformerMovement : MonoBehaviour
         GetComponent<PlatformerMovement>();
         anim = GetComponent<Animator>();
         jumpsLeft = jumpsMax;
+        Physics2D.IgnoreLayerCollision(7, 8, true);
     }
 
     void Update()
@@ -56,6 +57,7 @@ public class PlatformerMovement : MonoBehaviour
             // jump when we hit spacebar 
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space) && jumpsLeft > 0)
             {
+                Physics2D.IgnoreLayerCollision(7, 8, true);
                 jumpsLeft -= 1;
                 velocity.y = 0;
                 rb.AddForce(new Vector2(0, 90 * jumpSpeed));
@@ -68,27 +70,24 @@ public class PlatformerMovement : MonoBehaviour
             {
                 jumpsLeft = jumpsMax;
             }
-
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
-            {
-                rb.velocity.Normalize();
-                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y = 0); // add to the players velocity with the value "dashSpeed" 
-                coolDown = coolDownMax; // reset the timer
-                rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
-                Physics2D.IgnoreLayerCollision(7, 8, true);
-            }
-            if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
             {
                 rb.velocity.Normalize();
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
-                Physics2D.IgnoreLayerCollision(7, 8, true);
+            }
+            if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
+            {
+                rb.velocity.Normalize();
+                rb.velocity += new Vector2(moveX * dashSpeed, velocity.y);
+                coolDown = coolDownMax;
+                rolling = rollingMax;
             }
             else
             {
+   
                 coolDown -= Time.deltaTime; // count down the timer
-                Physics2D.IgnoreLayerCollision(7, 8, false);
             }
         }
         if (grounded == true)
