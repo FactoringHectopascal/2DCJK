@@ -13,17 +13,22 @@ public class ItemCost : MonoBehaviour
     [SerializeField]
     int playerCurrentMoney;
     MoneySystem moneySystem;
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
     
     void Start()
     {
         moneySystem = player.GetComponent<MoneySystem>();
         playerCurrentMoney = moneySystem.playerCurrentMoney;
         player = GameObject.FindGameObjectWithTag("Player");
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
-
-
+    
     public void OnTriggerStay2D(Collider2D collision)
-    {
+    {   if(collision.gameObject.layer == 8)
+        {
+        spriteRenderer.color = Color.gray;
+        }
         playerCurrentMoney = moneySystem.playerCurrentMoney;
         if(playerCurrentMoney >= itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
@@ -48,5 +53,11 @@ public class ItemCost : MonoBehaviour
             Debug.Log("You're Broke!");
         }
     }
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+        spriteRenderer.color = Color.white;
+        }
+    }
 }
