@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        text.text = "" + health;
+        text.text = health + "/" + maxHealth;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -72,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= 1;
             StartCoroutine(Invulnerability());
-            text.text = "" + health;
+            text.text = health + "/" + maxHealth;
             healthBar.fillAmount = health / maxHealth;
             if (facingLeft)
             {
