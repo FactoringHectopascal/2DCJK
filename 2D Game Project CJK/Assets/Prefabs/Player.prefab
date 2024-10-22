@@ -131,7 +131,7 @@ Transform:
   m_GameObject: {fileID: 6982636989127468746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -0.04, z: 0.071576305}
+  m_LocalPosition: {x: 0.23, y: -0.05, z: 0.071576305}
   m_LocalScale: {x: 0.24889423, y: 0.3018659, z: 1.0354}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -304,8 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25d55b34a25ac4483502425370df09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  jumpSpeed: 5
+  moveSpeed: 5
+  jumpSpeed: 3.8
   rb: {fileID: 4681358462963068688}
   rollingMax: 0.4
   rolling: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   parrying: 0
   parryTime: 5
   parryCoolDownMax: 0.5
-  anim: {fileID: 917523999135664958}
+  anim: {fileID: 0}
   isParrying: 0
 --- !u!61 &353101312621840467
 BoxCollider2D:
@@ -362,10 +362,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0023917109, y: -0.49867296}
+  m_Offset: {x: 0.0023917109, y: -0.48161903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -376,7 +376,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25183728, y: 0.0037763119}
+  m_Size: {x: 0.25183728, y: 0.07801098}
   m_EdgeRadius: 0
 --- !u!95 &917523999135664958
 Animator:
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440a1c5db9ed404fbbaa35bd7189541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordAnim: {fileID: 0}
+  swordAnim: {fileID: 1122648828245455756}
   attackCenter: {fileID: 6982636989127468746}
   attackRadius: 0.57
   enemiesLayer:
@@ -487,8 +487,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004841983, y: 0}
-  m_Size: {x: 0.61798525, y: 1}
+  m_Offset: {x: -0.011209488, y: -0.07022202}
+  m_Size: {x: 0.25684357, y: 0.85955596}
   m_Direction: 0
 --- !u!114 &6633754433276364784
 MonoBehaviour:
@@ -516,7 +516,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1746
+  m_InstanceId: -46716
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
