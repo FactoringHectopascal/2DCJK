@@ -103,8 +103,8 @@ MonoBehaviour:
   itemNumberSet: 3
   player: {fileID: 0}
   playerCurrentMoney: 0
-  spriteRenderer: {fileID: 0}
-  iW: {fileID: 0}
+  spriteRenderer: {fileID: 5473256583530131571}
+  iW: {fileID: 5032763576123410400, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
 --- !u!61 &8487218143819653901
 BoxCollider2D:
   m_ObjectHideFlags: 0

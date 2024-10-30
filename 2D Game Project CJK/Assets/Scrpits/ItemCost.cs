@@ -20,13 +20,16 @@ public class ItemCost : MonoBehaviour
     
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         moneySystem = player.GetComponent<MoneySystem>();
         playerCurrentMoney = moneySystem.playerCurrentMoney;
-        player = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
         iW = player.GetComponent<ItemWearables>();
     }
-    
+    private void Update()
+    {
+        playerCurrentMoney = moneySystem.playerCurrentMoney;
+    }
     public void OnTriggerStay2D(Collider2D collision)
     {   if(collision.gameObject.layer == 8)
         {

@@ -14,10 +14,16 @@ public class ItemChance : MonoBehaviour
     GameObject headphones;
     [SerializeField]
     GameObject hat;
+    MoneySystem moneySystem;
+    GameObject player;
+    int playerCurrentMoney;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        moneySystem = player.GetComponent<MoneySystem>();
         int rollForLowTierItem = Random.Range(1, 10);
+        playerCurrentMoney = moneySystem.playerCurrentMoney;
         switch (rollForLowTierItem)
         {
             case 1:
@@ -50,18 +56,6 @@ public class ItemChance : MonoBehaviour
             case 10:
                 Instantiate(leaf, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
-
-        }
-            
-
-        
-        
-            
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }    
     }
 }
