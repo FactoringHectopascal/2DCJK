@@ -34,7 +34,6 @@ public class PlayerCombat : MonoBehaviour
             Attack();
         }
         AttackRate();
-        FacingDir();
     }
 
     public void Attack()
@@ -60,19 +59,5 @@ public class PlayerCombat : MonoBehaviour
     private void AttackRate()
     {
         timer += Time.deltaTime;
-    }
-    private void FacingDir()
-    {
-        int x = (int)Input.GetAxisRaw("Horizontal");
-        if (x > 0)
-        {
-            swordSpriteRenderer.flipX = false;
-            sword.transform.localPosition = new Vector2(Mathf.Abs(sword.transform.localPosition.x), sword.transform.localPosition.y);
-        }
-        else if (x < 0)
-        {
-            swordSpriteRenderer.flipX = true;
-            sword.transform.localPosition = new Vector2(-Mathf.Abs(sword.transform.localPosition.x), sword.transform.localPosition.y);
-        }
     }
 }

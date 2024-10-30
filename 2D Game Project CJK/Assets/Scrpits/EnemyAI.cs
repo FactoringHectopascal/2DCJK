@@ -28,6 +28,9 @@ public class EnemyAI : MonoBehaviour
     float coolDownMax = 5f;
     bool grounded;
     Rigidbody2D eRB;
+    bool normalEnemy;
+    bool eliteEnemy;
+    SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,19 @@ public class EnemyAI : MonoBehaviour
         home = transform.position;
         Physics2D.IgnoreLayerCollision(7, 7);
         eRB = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        int num = Random.Range(1, 3);
+        if(num == 1)
+        {
+            eliteEnemy = true;
+            normalEnemy = false;
+            spriteRenderer.color = Color.blue;
+        }
+        else if (num == 2)
+        {
+            eliteEnemy = false;
+            normalEnemy = true;
+        }
     }
 
     // Update is called once per frame
@@ -97,13 +113,23 @@ public class EnemyAI : MonoBehaviour
     }
     public void EnemyAttack()
     {
-        if (coolDown <= 0)
+        if (coolDown <= 0 && normalEnemy)
         {
             anim.SetTrigger("attacking");
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
             {
-                player.GetComponent<PlayerHealth>().PlayerTakeDamage();
+                player.GetComponent<PlayerHealth>().PlayerTakeDamage(3);
+            }
+            coolDown = coolDownMax;
+        }
+        if(coolDown <= 0 && eliteEnemy)
+        {
+            anim.SetTrigger("attacking");
+            Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
+            foreach (Collider2D player in playerAttackDetection)
+            {
+                player.GetComponent<PlayerHealth>().PlayerTakeDamage(6);
             }
             coolDown = coolDownMax;
         }

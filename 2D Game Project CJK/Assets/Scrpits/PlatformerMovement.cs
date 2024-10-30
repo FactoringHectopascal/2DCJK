@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class PlatformerMovement : MonoBehaviour
 {
     [SerializeField]
-    float moveSpeed = 1.0f;
+    public float moveSpeed = 1.0f;
     [SerializeField]
     float jumpSpeed = 2.0f;
     public Rigidbody2D rb;
@@ -15,7 +15,7 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField]
     float coolDown = 0f;
     [SerializeField]
-    float coolDownMax = 1.5f;
+    public float coolDownMax = 2f;
     [SerializeField]
     int dashSpeed = 5;
     [SerializeField]
@@ -26,6 +26,8 @@ public class PlatformerMovement : MonoBehaviour
     public int jumpsMax = 1;
     [SerializeField]
     Image dashCooldownBar;
+    [SerializeField]
+    GameObject player;
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -35,6 +37,7 @@ public class PlatformerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         jumpsLeft = jumpsMax;
         Physics2D.IgnoreLayerCollision(7, 8, true);
+
     }
 
     void Update()
@@ -135,13 +138,11 @@ public class PlatformerMovement : MonoBehaviour
         int x = (int)Input.GetAxisRaw("Horizontal");
         if (x > 0)
         {
-            attackCenter.transform.localPosition = new Vector2(Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = false;
+            player.transform.localScale = new Vector3(2, 2, 1);
         }
         else if (x < 0)
         {
-            attackCenter.transform.localPosition = new Vector2(-Mathf.Abs(attackCenter.transform.localPosition.x), attackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = true;
+            player.transform.localScale = new Vector3(-2, 2, 1);
         }
     }
 

@@ -9,9 +9,9 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header ("Health")]
     [SerializeField]
-    public float health = 10;
+    public float health = 30;
     [SerializeField]
-    public float maxHealth = 10;
+    public float maxHealth = 30;
     [SerializeField]
     Image healthBar;
     [SerializeField]
@@ -31,6 +31,8 @@ public class PlayerHealth : MonoBehaviour
     int numOfFlashes;
     bool iFrames;
     SpriteRenderer spriteRenderer;
+    [SerializeField]
+    GameObject enemy;
     void Start()
     {
         health = maxHealth;
@@ -54,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
             facingLeft = false;
         }
     }
-    public void PlayerTakeDamage()
+    public void PlayerTakeDamage(float damage)
     {
         if (GetComponent<PlatformerMovement>().rolling > 0f)
         {
@@ -69,8 +71,8 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
         else
-        {
-            health -= 1;
+        { 
+            health -= damage;
             StartCoroutine(Invulnerability());
             text.text = health + "/" + maxHealth;
             healthBar.fillAmount = health / maxHealth;
