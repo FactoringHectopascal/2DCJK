@@ -23,10 +23,14 @@ public class ItemChance : MonoBehaviour
     GameObject pin;
     [SerializeField]
     GameObject medkit;
+    [SerializeField]
+    GameObject glasses;
+    [SerializeField]
+    GameObject syringe;
     // Start is called before the first frame update
     void Start()
     {
-        int rollForLowTierItem = Random.Range(1, 10);
+        int rollForLowTierItem = Random.Range(1, 12);
         player = GameObject.FindGameObjectWithTag("Player");
         moneySystem = player.GetComponent<MoneySystem>();
         playerCurrentMoney = moneySystem.playerCurrentMoney;
@@ -60,8 +64,12 @@ public class ItemChance : MonoBehaviour
                 Instantiate(pendant, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 10:
-                Instantiate(leaf, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(glasses, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
-        }    
+            case 11:
+                Instantiate(syringe, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                break;
+
+        }
     }
 }

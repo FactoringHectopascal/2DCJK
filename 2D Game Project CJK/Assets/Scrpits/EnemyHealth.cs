@@ -1,26 +1,33 @@
-using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    public float enemyHealthValue = 20;
+    public float enemyHealthValue;
     [SerializeField]
     GameObject coin;
     [SerializeField]
     Rigidbody2D eRB;
     [SerializeField]
     float knockBack;
-    float x;
     bool facingLeft;
     bool facingRight;
+    EnemyAI enemyAi;
+    [SerializeField]
+    public Image healthBar;
+    public float enemyHealthValueMax;
     // Start is called before the first frame update
     void Start()
     {
         eRB = GetComponent<Rigidbody2D>();
+        enemyAi = GetComponent<EnemyAI>();
+        if (enemyAi.eliteEnemy == true)
+            enemyHealthValue = Random.Range(80, 150);
+        if (enemyAi.normalEnemy == true)
+            enemyHealthValue = Random.Range(20, 80);
+        enemyHealthValueMax = enemyHealthValue;
     }
 
-    // Update is called once per frame
     public void Update()
     {
         float x = eRB.velocity.x;
@@ -29,12 +36,12 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(coin, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        if(x < 0)
+        if (x < 0)
         {
             facingLeft = true;
             facingRight = false;
         }
-        if(x > 0)
+        if (x > 0)
         {
             facingRight = true;
             facingLeft = false;
@@ -43,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         enemyHealthValue -= damage;
+        healthBar.fillAmount = enemyHealthValue / enemyHealthValueMax;
         if (facingLeft)
         {
             eRB.AddForce(new Vector2(50 * knockBack, 20 * knockBack));

@@ -106,6 +106,90 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1944249373374206218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8598684771328889790}
+  - component: {fileID: 2504498613968136171}
+  m_Layer: 0
+  m_Name: Syringe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8598684771328889790
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944249373374206218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.26122147, y: -0.13001254, z: -0.42618367, w: -0.8562872}
+  m_LocalPosition: {x: -0.209, y: -0.28, z: 0.651}
+  m_LocalScale: {x: 0.26714003, y: 0.27105114, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8815167206244092693}
+  m_LocalEulerAnglesHint: {x: -33.93, y: 0, z: 52.92}
+--- !u!212 &2504498613968136171
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944249373374206218}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 3a0b1407a50228449837568eb0f3b730, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &2884597866186029238
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +432,90 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: eada286daa630b44b92fb0519ac4d171, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &6301198535028263497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4079359160118519591}
+  - component: {fileID: 3997847231278018628}
+  m_Layer: 0
+  m_Name: Sunglasses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4079359160118519591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301198535028263497}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 0.25, z: 0}
+  m_LocalScale: {x: 0.54, y: 0.54, z: 1.1237}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8815167206244092693}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3997847231278018628
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301198535028263497}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: d292c75f1cc84f94abba66e98cce9727, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -652,7 +820,7 @@ GameObject:
   - component: {fileID: 5393307385387054684}
   - component: {fileID: 5231648271536564426}
   m_Layer: 0
-  m_Name: Sunglasses
+  m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,13 +834,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7564591951560126483}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 0.25, z: 0}
-  m_LocalScale: {x: 0.54, y: 0.54, z: 1.1237}
+  m_LocalRotation: {x: 0, y: 0.33504048, z: 0, w: 0.94220376}
+  m_LocalPosition: {x: 0.076, y: 0.076, z: -0.061}
+  m_LocalScale: {x: 0.40381202, y: 0.54, z: 1.1237}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8815167206244092693}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 39.15, z: 0}
 --- !u!212 &5231648271536564426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -714,7 +882,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: d292c75f1cc84f94abba66e98cce9727, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b5fba57632f16e4bafc439967a70812, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -862,6 +1030,7 @@ GameObject:
   - component: {fileID: 2719172757392937948}
   - component: {fileID: 6633754433276364784}
   - component: {fileID: 5032763576123410400}
+  - component: {fileID: 3410502701659710474}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -887,8 +1056,10 @@ Transform:
   - {fileID: 5020212105992131851}
   - {fileID: 6885336047952365814}
   - {fileID: 8860711450792933863}
+  - {fileID: 8598684771328889790}
   - {fileID: 1801142457960067504}
   - {fileID: 5393307385387054684}
+  - {fileID: 4079359160118519591}
   - {fileID: 5909222928117982100}
   - {fileID: 7661126438548488991}
   - {fileID: 9008040500278357573}
@@ -1103,6 +1274,7 @@ MonoBehaviour:
   attackRate: 0.7
   timer: 0
   sword: {fileID: 246008716072470744}
+  playerDMG: 5
 --- !u!114 &7573148440776237079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,8 +1287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb332f62eb1b63d46bdfb5315815990f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  maxHealth: 10
+  health: 20
+  maxHealth: 20
   healthBar: {fileID: 0}
   text: {fileID: 0}
   rb: {fileID: 4681358462963068688}
@@ -1142,6 +1314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStartingMoney: 0
   playerCurrentMoney: 0
+  dollars: {fileID: 0}
 --- !u!70 &2719172757392937948
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1203,7 +1376,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2414
+  m_InstanceId: -1918
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -1221,8 +1394,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   necklace: {fileID: 6287495419536895067}
   leaf: {fileID: 7961955609314746584}
-  sunglasses: {fileID: 7564591951560126483}
+  sunglasses: {fileID: 6301198535028263497}
   headphones: {fileID: 7201245259856392927}
   hat: {fileID: 7404689220990929889}
   pin: {fileID: 7307472820754694845}
   pendant: {fileID: 2884597866186029238}
+  glasses: {fileID: 7564591951560126483}
+  syringe: {fileID: 1944249373374206218}
+--- !u!114 &3410502701659710474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9199821735871390727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf6be18778def9847bd4855bf988ea7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDesc: {fileID: 0}
+  description: 

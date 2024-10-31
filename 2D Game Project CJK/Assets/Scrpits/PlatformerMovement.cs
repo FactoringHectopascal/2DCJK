@@ -6,7 +6,7 @@ public class PlatformerMovement : MonoBehaviour
     [SerializeField]
     public float moveSpeed = 1.0f;
     [SerializeField]
-    float jumpSpeed = 2.0f;
+    public float jumpSpeed = 2.0f;
     public Rigidbody2D rb;
     bool grounded = false;
     [SerializeField]
@@ -20,7 +20,6 @@ public class PlatformerMovement : MonoBehaviour
     int dashSpeed = 5;
     [SerializeField]
     bool jumping;
-    GameObject attackCenter;
     Animator anim;
     public int jumpsLeft;
     public int jumpsMax = 1;
@@ -32,7 +31,6 @@ public class PlatformerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         GetComponent<PlayerCombat>();
-        attackCenter = GetComponent<PlayerCombat>().attackCenter;
         GetComponent<PlatformerMovement>();
         anim = GetComponent<Animator>();
         jumpsLeft = jumpsMax;

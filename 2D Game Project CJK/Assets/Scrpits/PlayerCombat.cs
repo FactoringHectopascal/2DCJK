@@ -18,7 +18,6 @@ public class PlayerCombat : MonoBehaviour
     public float timer;
     [SerializeField]
     GameObject sword;
-    SpriteRenderer swordSpriteRenderer;
     public float playerDMG = 5f;
 
     private void Start()
@@ -26,7 +25,6 @@ public class PlayerCombat : MonoBehaviour
         swordAnim = sword.GetComponent<Animator>();
         GetComponent<EnemyHealth>();
         GetComponent<PlatformerMovement>();
-        swordSpriteRenderer = sword.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
