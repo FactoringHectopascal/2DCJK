@@ -56,6 +56,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //if the player gets too close
         Vector3 playerPosition = new Vector2(player.transform.position.x, transform.position.y);
         Vector2 chaseDir = playerPosition - transform.position;
@@ -105,6 +106,8 @@ public class EnemyAI : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
         coolDown -= Time.deltaTime;
+        int xAnim = (int)eRB.velocity.x;
+        anim.SetInteger("x", xAnim);
     }
     private void OnDrawGizmos()
     {
@@ -119,18 +122,19 @@ public class EnemyAI : MonoBehaviour
             foreach (Collider2D player in playerAttackDetection)
             {
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(3);
+                coolDown = coolDownMax;
             }
-            coolDown = coolDownMax;
+            
         }
         if(coolDown <= 0 && eliteEnemy)
         {
-            anim.SetTrigger("attacking");
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
             {
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(6);
+                coolDown = coolDownMax;
             }
-            coolDown = coolDownMax;
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
