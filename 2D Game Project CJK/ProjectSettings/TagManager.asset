@@ -7,6 +7,9 @@ TagManager:
   - item
   - coin
   - Enemy
+  - sword
+  - shield
+  - cost
   layers:
   - Default
   - TransparentFX

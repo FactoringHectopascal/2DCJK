@@ -19,6 +19,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     GameObject sword;
     SpriteRenderer swordSpriteRenderer;
+    public float playerDMG = 5f;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class PlayerCombat : MonoBehaviour
             Debug.Log(enemies.Length);
             foreach (Collider2D enemy in enemies)
             {
-                enemy.GetComponent<EnemyHealth>().TakeDamage();
+                enemy.GetComponent<EnemyHealth>().TakeDamage(playerDMG);
             }
 
         }

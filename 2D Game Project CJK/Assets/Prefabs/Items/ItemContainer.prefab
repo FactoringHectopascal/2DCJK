@@ -49,3 +49,6 @@ MonoBehaviour:
   sunglasses: {fileID: 2481499556982822779, guid: b12c2b89f240c7d45b68dc4bbc9ab764, type: 3}
   headphones: {fileID: 4784694252500923460, guid: 42201b5ebd3a2834a99fe6175d71f9a5, type: 3}
   hat: {fileID: 4477394726569719293, guid: 2486a83eaa46e45488594cc42949c8d0, type: 3}
+  pendant: {fileID: 4812199258921766617, guid: 6299c5160a5e450459a40e3339436194, type: 3}
+  pin: {fileID: 5362225726930422274, guid: 9d39b0be3e064b0418b38789ba6c7294, type: 3}
+  medkit: {fileID: 6790932726740580611, guid: a51e92095892aba4fbd22d23d25fba55, type: 3}

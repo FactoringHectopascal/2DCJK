@@ -40,9 +40,9 @@ public class EnemyHealth : MonoBehaviour
             facingLeft = false;
         }
     }
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
-        enemyHealthValue -= 5;
+        enemyHealthValue -= damage;
         if (facingLeft)
         {
             eRB.AddForce(new Vector2(50 * knockBack, 20 * knockBack));

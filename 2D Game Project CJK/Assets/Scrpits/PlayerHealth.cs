@@ -33,17 +33,25 @@ public class PlayerHealth : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField]
     GameObject enemy;
+    [SerializeField]
+    GameObject shieldSprite;
+    public bool shield;
+    public float shieldCooldown = 5f;
+    float shieldCurrentCooldown;
+    public bool shieldGot;
     void Start()
     {
         health = maxHealth;
         text.text = health + "/" + maxHealth;
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        shieldSprite = GameObject.FindGameObjectWithTag("shield");
     }
 
     // Update is called once per frame
     void Update()
     {
+        shieldCurrentCooldown -= Time.deltaTime;
         float x = rb.velocity.x;
         if (x < 0)
         {
@@ -55,11 +63,32 @@ public class PlayerHealth : MonoBehaviour
             facingRight = true;
             facingLeft = false;
         }
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        if(shieldCurrentCooldown <= 0 && shieldGot)
+        {
+            shield = true;
+            shieldSprite.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        if (shield)
+        {
+            shieldSprite.GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
     public void PlayerTakeDamage(float damage)
-    {
+    {   
         if (GetComponent<PlatformerMovement>().rolling > 0f)
         {
+            return;
+        }
+        else if (shield)
+        {
+            StartCoroutine(InvulnerabilityShield());
+            shieldSprite.GetComponent<SpriteRenderer>().enabled = false;
+            shieldCurrentCooldown = shieldCooldown;
+            shield = false;
             return;
         }
         else if (GetComponent<Parry>().isParrying == true)
@@ -100,6 +129,12 @@ public class PlayerHealth : MonoBehaviour
             spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numOfFlashes * 2));
         }
+        iFrames = false;
+    }
+    private IEnumerator InvulnerabilityShield()
+    {
+        iFrames = true;
+        yield return new WaitForSeconds(1);
         iFrames = false;
     }
 }

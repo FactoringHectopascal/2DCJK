@@ -14,6 +14,10 @@ public class ItemWearables : MonoBehaviour
     GameObject headphones;
     [SerializeField]
     GameObject hat;
+    [SerializeField]
+    GameObject pin;
+    [SerializeField]
+    GameObject pendant;
     public void wearNecklace()
     {
         necklace.GetComponent<SpriteRenderer>().enabled = true;
@@ -33,5 +37,13 @@ public class ItemWearables : MonoBehaviour
     public void wearHat()
     {
         hat.GetComponent<SpriteRenderer>().enabled = true;
+    }
+    public void wearPin()
+    {
+        pin.GetComponent<SpriteRenderer>().enabled = true;
+    }
+    public void wearPendant()
+    {
+        pendant.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

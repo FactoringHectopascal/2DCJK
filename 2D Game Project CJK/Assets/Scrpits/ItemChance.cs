@@ -17,20 +17,26 @@ public class ItemChance : MonoBehaviour
     MoneySystem moneySystem;
     GameObject player;
     int playerCurrentMoney;
+    [SerializeField]
+    GameObject pendant;
+    [SerializeField]
+    GameObject pin;
+    [SerializeField]
+    GameObject medkit;
     // Start is called before the first frame update
     void Start()
     {
+        int rollForLowTierItem = Random.Range(1, 10);
         player = GameObject.FindGameObjectWithTag("Player");
         moneySystem = player.GetComponent<MoneySystem>();
-        int rollForLowTierItem = Random.Range(1, 10);
         playerCurrentMoney = moneySystem.playerCurrentMoney;
         switch (rollForLowTierItem)
         {
             case 1:
-                Instantiate(sunglasses, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(medkit, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(hat, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(pin, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 3:
                 Instantiate(leaf, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
@@ -42,7 +48,7 @@ public class ItemChance : MonoBehaviour
                 Instantiate(necklace, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 6:
-                Instantiate(sunglasses, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(headphones, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 7:
                 Instantiate(sunglasses, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
@@ -51,7 +57,7 @@ public class ItemChance : MonoBehaviour
                 Instantiate(necklace, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 9:
-                Instantiate(sunglasses, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                Instantiate(pendant, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
             case 10:
                 Instantiate(leaf, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);

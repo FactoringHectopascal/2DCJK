@@ -1,4 +1,7 @@
+using System.ComponentModel;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemCost : MonoBehaviour
 {
@@ -17,7 +20,9 @@ public class ItemCost : MonoBehaviour
     SpriteRenderer spriteRenderer;
     [SerializeField]
     ItemWearables iW;
-    
+    GameObject sword;
+    [SerializeField]
+    TextMeshProUGUI costText;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -25,6 +30,9 @@ public class ItemCost : MonoBehaviour
         playerCurrentMoney = moneySystem.playerCurrentMoney;
         spriteRenderer = GetComponent<SpriteRenderer>();
         iW = player.GetComponent<ItemWearables>();
+        sword = GameObject.FindGameObjectWithTag("sword");
+        itemCost = Random.Range(5, 40);
+        costText.text = "$ " + itemCost;
     }
     private void Update()
     {
@@ -59,16 +67,29 @@ public class ItemCost : MonoBehaviour
                     Debug.Log("Purchased More Health");
                     break;
                 case 4:
-                    player.GetComponent<PlatformerMovement>().coolDownMax -= .4f;
-                    player.GetComponent<PlayerHealth>().maxHealth += 3;
-                    player.GetComponent<PlatformerMovement>().moveSpeed += .5f;
-                    player.GetComponent<PlatformerMovement>().jumpsMax += 1;
+                    if (player.GetComponent<PlayerHealth>().shieldGot == true)
+                        player.GetComponent<PlayerHealth>().shieldCooldown -= 0.25f;
+                    else
+                    player.GetComponent<PlayerHealth>().shieldGot = true;
+                    player.GetComponent<PlayerHealth>().shield = true;
                     iW.wearHeadphones();
                     Debug.Log("Purchased Headphones");
                     break;
                 case 5:
                     player.GetComponent<PlatformerMovement>().moveSpeed += .6f;
                     iW.wearHat();
+                    break;
+                case 6:
+                    player.GetComponent<PlayerCombat>().attackRadius += 0.099f;
+                    sword.transform.localScale += new Vector3 (0.094f, 0.094f, 0);
+                    iW.wearPin();
+                    break;
+                case 7:
+                    player.GetComponent<PlayerHealth>().health += 8;
+                    break;
+                case 8:
+                    player.GetComponent<PlayerCombat>().playerDMG += 5f;
+                    iW.wearPendant();
                     break;
             }
             Destroy(gameObject);
