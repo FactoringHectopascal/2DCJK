@@ -28,8 +28,8 @@ public class EnemyAI : MonoBehaviour
     float coolDownMax = 5f;
     bool grounded;
     Rigidbody2D eRB;
-    bool normalEnemy;
-    bool eliteEnemy;
+    public bool normalEnemy;
+    public bool eliteEnemy;
     SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
@@ -56,6 +56,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //if the player gets too close
         Vector3 playerPosition = new Vector2(player.transform.position.x, transform.position.y);
         Vector2 chaseDir = playerPosition - transform.position;
@@ -87,7 +88,7 @@ public class EnemyAI : MonoBehaviour
         Collider2D[] playerDetection = Physics2D.OverlapCircleAll(attackCenter.transform.position, attackRadius, playerLayer); //adds a detection circle around the enemy
         foreach (Collider2D player in playerDetection)
         {
-            EnemyAttack();
+            anim.SetTrigger("attacking"); // dude
             eRB.velocity = Vector3.zero;
         }
 
@@ -96,15 +97,17 @@ public class EnemyAI : MonoBehaviour
         if (x < 0)
         {
             playerAttackCenter.transform.localPosition = new Vector2(-Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = true;
 
         }
         else if (x > 0)
         {
             playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         coolDown -= Time.deltaTime;
+        int xAnim = (int)eRB.velocity.x;
+        anim.SetInteger("x", xAnim);
     }
     private void OnDrawGizmos()
     {
@@ -115,23 +118,23 @@ public class EnemyAI : MonoBehaviour
     {
         if (coolDown <= 0 && normalEnemy)
         {
-            anim.SetTrigger("attacking");
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
             {
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(3);
+                coolDown = coolDownMax;
             }
-            coolDown = coolDownMax;
+            
         }
         if(coolDown <= 0 && eliteEnemy)
         {
-            anim.SetTrigger("attacking");
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
             {
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(6);
+                coolDown = coolDownMax;
             }
-            coolDown = coolDownMax;
+            
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

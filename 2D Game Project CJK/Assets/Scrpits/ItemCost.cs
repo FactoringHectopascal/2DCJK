@@ -1,5 +1,7 @@
+using System.Collections;
 using System.ComponentModel;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +35,7 @@ public class ItemCost : MonoBehaviour
         sword = GameObject.FindGameObjectWithTag("sword");
         itemCost = Random.Range(5, 40);
         costText.text = "$ " + itemCost;
+
     }
     private void Update()
     {
@@ -54,17 +57,18 @@ public class ItemCost : MonoBehaviour
                 case 1:
                     player.GetComponent<PlatformerMovement>().jumpsMax += 1;
                     iW.wearLeaf();
-                    Debug.Log("Purchased Extra Jump");
                     break;
                 case 2:
-                    player.GetComponent<PlayerCombat>().attackRate -= 0.05f;
-                    Debug.Log("Purchased attackRate Buff");
+                    player.GetComponent<PlayerCombat>().attackRate -= 0.099f;
+                    Debug.Log("Purchased attackRate Buff.");
                     iW.wearSunglasses();
                     break;
                 case 3:
                     player.GetComponent<PlayerHealth>().maxHealth += 4;
+                    player.GetComponent<PlayerHealth>().health += 4;
+                    player.GetComponent<PlayerHealth>().healthBar.fillAmount = player.GetComponent<PlayerHealth>().health / player.GetComponent<PlayerHealth>().maxHealth;
                     iW.wearNecklace();
-                    Debug.Log("Purchased More Health");
+                    player.GetComponent<PlayerHealth>().text.text = player.GetComponent<PlayerHealth>().health + "/" + player.GetComponent<PlayerHealth>().maxHealth;
                     break;
                 case 4:
                     if (player.GetComponent<PlayerHealth>().shieldGot == true)
@@ -73,7 +77,6 @@ public class ItemCost : MonoBehaviour
                     player.GetComponent<PlayerHealth>().shieldGot = true;
                     player.GetComponent<PlayerHealth>().shield = true;
                     iW.wearHeadphones();
-                    Debug.Log("Purchased Headphones");
                     break;
                 case 5:
                     player.GetComponent<PlatformerMovement>().moveSpeed += .6f;
@@ -85,18 +88,29 @@ public class ItemCost : MonoBehaviour
                     iW.wearPin();
                     break;
                 case 7:
-                    player.GetComponent<PlayerHealth>().health += 8;
+                    player.GetComponent<PlayerHealth>().health += player.GetComponent<PlayerHealth>().maxHealth;
+                    player.GetComponent<PlayerHealth>().text.text = player.GetComponent<PlayerHealth>().health + "/" + player.GetComponent<PlayerHealth>().maxHealth;
+                    player.GetComponent<PlayerHealth>().healthBar.fillAmount = player.GetComponent<PlayerHealth>().health / player.GetComponent<PlayerHealth>().maxHealth;
                     break;
                 case 8:
                     player.GetComponent<PlayerCombat>().playerDMG += 5f;
                     iW.wearPendant();
+                    break;
+                case 9:
+                    player.GetComponent<PlatformerMovement>().jumpSpeed += .25f;
+                    iW.wearGlasses();
+                    break;
+                case 10:
+                    player.GetComponent<PlatformerMovement>().moveSpeed += .3f;
+                    player.GetComponent<PlayerCombat>().attackRate -= .07f;
+                    iW.wearSyringe();
                     break;
             }
             Destroy(gameObject);
         }
         else if(playerCurrentMoney < itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
-            Debug.Log("You're Broke!");
+            return;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

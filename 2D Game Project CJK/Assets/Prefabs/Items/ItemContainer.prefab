@@ -52,3 +52,5 @@ MonoBehaviour:
   pendant: {fileID: 4812199258921766617, guid: 6299c5160a5e450459a40e3339436194, type: 3}
   pin: {fileID: 5362225726930422274, guid: 9d39b0be3e064b0418b38789ba6c7294, type: 3}
   medkit: {fileID: 6790932726740580611, guid: a51e92095892aba4fbd22d23d25fba55, type: 3}
+  glasses: {fileID: 3413967689253327006, guid: 79b4e563baaabf741a34cb753515e3ce, type: 3}
+  syringe: {fileID: 8744806019161281630, guid: 1922171a540dcec489e91cdd76bf4adc, type: 3}

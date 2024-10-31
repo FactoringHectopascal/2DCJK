@@ -18,6 +18,10 @@ public class ItemWearables : MonoBehaviour
     GameObject pin;
     [SerializeField]
     GameObject pendant;
+    [SerializeField]
+    GameObject glasses;
+    [SerializeField]
+    GameObject syringe;
     public void wearNecklace()
     {
         necklace.GetComponent<SpriteRenderer>().enabled = true;
@@ -45,5 +49,13 @@ public class ItemWearables : MonoBehaviour
     public void wearPendant()
     {
         pendant.GetComponent<SpriteRenderer>().enabled = true;
+    }
+    public void wearGlasses()
+    {
+        glasses.GetComponent<SpriteRenderer>().enabled = true;
+    }
+    public void wearSyringe()
+    {
+        syringe.GetComponent<SpriteRenderer>().enabled = true;  
     }
 }

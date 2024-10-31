@@ -8,12 +8,11 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     [Header ("Health")]
-    [SerializeField]
     public float health = 30;
     [SerializeField]
     public float maxHealth = 30;
     [SerializeField]
-    Image healthBar;
+    public Image healthBar;
     [SerializeField]
     public TextMeshProUGUI text;
     [Header("Knockback")]
@@ -21,7 +20,6 @@ public class PlayerHealth : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField]
     float knockBack;
-    float x;
     bool facingLeft;
     bool facingRight;
     [Header("Iframes")]
@@ -66,6 +64,8 @@ public class PlayerHealth : MonoBehaviour
         if(health > maxHealth)
         {
             health = maxHealth;
+            text.text = health + "/" + maxHealth;
+            healthBar.fillAmount = health / maxHealth;
         }
         if(shieldCurrentCooldown <= 0 && shieldGot)
         {

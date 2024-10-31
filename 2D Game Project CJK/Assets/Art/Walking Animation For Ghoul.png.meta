@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a5e45396f6446b84581539104cd723e4
+guid: 91e03bd2e88f2ea42b9faad867d0adc0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,91 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ghoul Animations_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 3072
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ffbe9d54f1afde94885d391f6eefb8b1
-      internalID: -1229342078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_1
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 3072
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ddbf554df5e7b040852177ffb3a968e
-      internalID: 1959302602
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_2
-      rect:
-        serializedVersion: 2
-        x: 2048
-        y: 3072
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5efcaf6208f8b74fb8250c6d124b35b
-      internalID: 1896292755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_3
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 3072
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 116a72865d6a7af4580c082f80259e2a
-      internalID: -20307199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_4
+      name: Walking Animation For Ghoul_0
       rect:
         serializedVersion: 2
         x: 0
@@ -195,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3ef20b233fbeae40a79c082ed9edda3
-      internalID: 1567628323
+      spriteID: 5bbce74224630c441a08956f5439d2a0
+      internalID: -1749166917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_5
+      name: Walking Animation For Ghoul_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -216,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60ac00e504e7a354e9577153b9e58075
-      internalID: -143848557
+      spriteID: 3da80ce5c791515478b0ead9736cf45b
+      internalID: 2037989151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_6
+      name: Walking Animation For Ghoul_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -237,35 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 109617e9037ae4948a57d5c55c62f85a
-      internalID: 1513855928
+      spriteID: 6d192d1fde384e74ca4a3990f5173d08
+      internalID: -1040301408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_7
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 2048
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c8b923311bca564e8a390234f74aeb4
-      internalID: -343632050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_8
+      name: Walking Animation For Ghoul_3
       rect:
         serializedVersion: 2
         x: 0
@@ -279,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a586f88cbcaf63a40a800133367faf27
-      internalID: 2007784834
+      spriteID: 510868824e4f90949a47cac6b19340da
+      internalID: -1094529309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_9
+      name: Walking Animation For Ghoul_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -300,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c60eafb5ce2d904b895fa055c043910
-      internalID: -1485634809
+      spriteID: 7dc14f75e884c604bbca7e1caac5adda
+      internalID: -1426827656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_10
+      name: Walking Animation For Ghoul_5
       rect:
         serializedVersion: 2
         x: 2048
@@ -321,35 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f5fd6b2cac151549b29a271d04e4da1
-      internalID: 277312464
+      spriteID: 1f4c7fd4f5030674d910c88a4966b939
+      internalID: -1744632145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_11
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 1024
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8765469ef81a3a94b97107ecbd223cff
-      internalID: 1417095723
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_12
+      name: Walking Animation For Ghoul_6
       rect:
         serializedVersion: 2
         x: 0
@@ -363,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a74094c78bb61c640a7e4102c5804735
-      internalID: 1935177318
+      spriteID: dbf1b4e4a319ae44aaec15038eef0561
+      internalID: 1046761057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_13
+      name: Walking Animation For Ghoul_7
       rect:
         serializedVersion: 2
         x: 1024
@@ -384,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a046a38134b33b3429993b1f150f0235
-      internalID: -69665918
+      spriteID: c72bd5c2bbb87aa4db26016c70dc1cd8
+      internalID: 84000057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghoul Animations_14
+      name: Walking Animation For Ghoul_8
       rect:
         serializedVersion: 2
         x: 2048
@@ -405,29 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 288fb1c63dd76c24dbf61d0d1403f9d9
-      internalID: 656665769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Ghoul Animations_15
-      rect:
-        serializedVersion: 2
-        x: 3072
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1bff430d0b3c9f41abb3b68bf5f10b1
-      internalID: -1246897676
+      spriteID: 2d27245ab9f863042af5b964f48a3452
+      internalID: -831602916
       vertices: []
       indices: 
       edges: []
@@ -443,22 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Ghoul Animations_0: -1229342078
-      Ghoul Animations_1: 1959302602
-      Ghoul Animations_10: 277312464
-      Ghoul Animations_11: 1417095723
-      Ghoul Animations_12: 1935177318
-      Ghoul Animations_13: -69665918
-      Ghoul Animations_14: 656665769
-      Ghoul Animations_15: -1246897676
-      Ghoul Animations_2: 1896292755
-      Ghoul Animations_3: -20307199
-      Ghoul Animations_4: 1567628323
-      Ghoul Animations_5: -143848557
-      Ghoul Animations_6: 1513855928
-      Ghoul Animations_7: -343632050
-      Ghoul Animations_8: 2007784834
-      Ghoul Animations_9: -1485634809
+      Walking Animation For Ghoul_0: -1749166917
+      Walking Animation For Ghoul_1: 2037989151
+      Walking Animation For Ghoul_2: -1040301408
+      Walking Animation For Ghoul_3: -1094529309
+      Walking Animation For Ghoul_4: -1426827656
+      Walking Animation For Ghoul_5: -1744632145
+      Walking Animation For Ghoul_6: 1046761057
+      Walking Animation For Ghoul_7: 84000057
+      Walking Animation For Ghoul_8: -831602916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
