@@ -25,6 +25,8 @@ public class ItemCost : MonoBehaviour
     GameObject sword;
     [SerializeField]
     TextMeshProUGUI costText;
+    [SerializeField]
+    GameObject drone;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -104,6 +106,9 @@ public class ItemCost : MonoBehaviour
                     player.GetComponent<PlatformerMovement>().moveSpeed += .3f;
                     player.GetComponent<PlayerCombat>().attackRate -= .07f;
                     iW.wearSyringe();
+                    break;
+                case 11:
+                    Instantiate(drone, transform.position, Quaternion.identity);
                     break;
             }
             Destroy(gameObject);

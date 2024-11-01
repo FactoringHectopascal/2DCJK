@@ -60,4 +60,9 @@ public class EnemyHealth : MonoBehaviour
             eRB.AddForce(new Vector2(-50 * knockBack, 20 * knockBack));
         }
     }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+            TakeDamage(4);
+    }
 }
