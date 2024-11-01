@@ -35,8 +35,8 @@ public class DroneAI : MonoBehaviour
     {
         Vector3 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Vector2 chaseDir = playerPosition - transform.position;
-        chaseDir.Normalize();
         rb.velocity = chaseDir * chaseSpeed;
+        chaseDir.Normalize();
         int x = (int)Input.GetAxisRaw("Horizontal");
         if (x < 0)
             GetComponent<SpriteRenderer>().flipX = true;

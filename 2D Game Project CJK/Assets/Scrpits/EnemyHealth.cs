@@ -31,7 +31,13 @@ public class EnemyHealth : MonoBehaviour
     public void Update()
     {
         float x = eRB.velocity.x;
-        if (enemyHealthValue <= 0)
+        if (enemyHealthValue <= 0 && enemyAi.eliteEnemy)
+        {
+            Instantiate(coin, transform.position, Quaternion.identity);
+            Instantiate(coin, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (enemyHealthValue <= 0)
         {
             Instantiate(coin, transform.position, Quaternion.identity);
             Destroy(gameObject);

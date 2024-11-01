@@ -27,10 +27,12 @@ public class ItemChance : MonoBehaviour
     GameObject glasses;
     [SerializeField]
     GameObject syringe;
+    [SerializeField]
+    GameObject drone;
     // Start is called before the first frame update
     void Start()
     {
-        int rollForLowTierItem = Random.Range(1, 12);
+        int rollForLowTierItem = Random.Range(1, 13);
         player = GameObject.FindGameObjectWithTag("Player");
         moneySystem = player.GetComponent<MoneySystem>();
         playerCurrentMoney = moneySystem.playerCurrentMoney;
@@ -68,6 +70,9 @@ public class ItemChance : MonoBehaviour
                 break;
             case 11:
                 Instantiate(syringe, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+                break;
+            case 12: 
+                Instantiate(drone, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
                 break;
 
         }
