@@ -10,6 +10,7 @@ TagManager:
   - sword
   - shield
   - cost
+  - bullet
   layers:
   - Default
   - TransparentFX

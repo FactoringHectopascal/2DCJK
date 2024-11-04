@@ -54,3 +54,4 @@ MonoBehaviour:
   medkit: {fileID: 6790932726740580611, guid: a51e92095892aba4fbd22d23d25fba55, type: 3}
   glasses: {fileID: 3413967689253327006, guid: 79b4e563baaabf741a34cb753515e3ce, type: 3}
   syringe: {fileID: 8744806019161281630, guid: 1922171a540dcec489e91cdd76bf4adc, type: 3}
+  drone: {fileID: 8475088854487532511, guid: bf018652e39d74d47896c409001ed3e6, type: 3}

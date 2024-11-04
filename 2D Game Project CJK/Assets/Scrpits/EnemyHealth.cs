@@ -31,7 +31,13 @@ public class EnemyHealth : MonoBehaviour
     public void Update()
     {
         float x = eRB.velocity.x;
-        if (enemyHealthValue <= 0)
+        if (enemyHealthValue <= 0 && enemyAi.eliteEnemy)
+        {
+            Instantiate(coin, transform.position, Quaternion.identity);
+            Instantiate(coin, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (enemyHealthValue <= 0)
         {
             Instantiate(coin, transform.position, Quaternion.identity);
             Destroy(gameObject);
@@ -59,5 +65,10 @@ public class EnemyHealth : MonoBehaviour
         {
             eRB.AddForce(new Vector2(-50 * knockBack, 20 * knockBack));
         }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+            TakeDamage(4);
     }
 }

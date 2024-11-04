@@ -43,9 +43,11 @@ public class PlatformerMovement : MonoBehaviour
         if (rolling > 0f) // if a player is dodging
         {
             rolling -= Time.deltaTime; // count down the dodging timer
+            anim.SetBool("dash", true);
         }
         else
         {
+            anim.SetBool("dash", false);
             // left and right movement based on horizontal axis input
             float moveX = UnityEngine.Input.GetAxisRaw("Horizontal");
             Vector2 velocity = rb.velocity;
@@ -73,21 +75,21 @@ public class PlatformerMovement : MonoBehaviour
             }
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && jumping && coolDown <= 0 && moveX != 0)
             {
-                rb.velocity.Normalize();
+                anim.SetBool("grounded", true);
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y); // add to the players velocity with the value "dashSpeed" 
+                rb.velocity.Normalize();
                 coolDown = coolDownMax; // reset the timer
                 rolling = rollingMax; // start dodge timer (so that a player doesn't dodge infinitely)
             }
             if (UnityEngine.Input.GetKey(KeyCode.LeftShift) && grounded && coolDown <= 0 && moveX != 0 && Mathf.Abs(velocity.y) <= 0.01f) // if you're moving, grounded, not jumping, have no cooldown, and press LShift
             {
-                rb.velocity.Normalize();
                 rb.velocity += new Vector2(moveX * dashSpeed, velocity.y);
+                rb.velocity.Normalize();
                 coolDown = coolDownMax;
                 rolling = rollingMax;
             }
             else
             {
-   
                 coolDown -= Time.deltaTime; // count down the timer
             }
         }
