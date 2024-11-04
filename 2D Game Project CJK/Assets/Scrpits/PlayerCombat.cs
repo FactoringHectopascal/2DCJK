@@ -1,4 +1,3 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -19,7 +18,13 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField]
     GameObject sword;
     public float playerDMG = 5f;
-
+    float knifeTimer = 1.5f;
+    float knifeTimerCurrent;
+    [SerializeField]
+    GameObject prefab;
+    [SerializeField]
+    float knifeSpeed;
+    float knifeLifetime = 3f;
     private void Start()
     {
         swordAnim = sword.GetComponent<Animator>();
@@ -29,12 +34,28 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         if (UnityEngine.Input.GetKey(KeyCode.R))
-        {
             Attack();
-        }
         AttackRate();
+        if (UnityEngine.Input.GetKeyDown(KeyCode.F) && knifeTimerCurrent <= 0)
+            KnifeThrow();
+        knifeTimerCurrent -= Time.deltaTime;
     }
 
+    public void KnifeThrow()
+    {
+        float moveX = UnityEngine.Input.GetAxisRaw("Horizontal");
+        int x = (int)Input.GetAxisRaw("Horizontal");
+        if (x < 0)
+            Mathf.Abs(moveX);
+        else if (x > 0)
+            Mathf.Abs(-moveX);
+        Vector3 shootDir = new Vector3(player.transform.position.x + 1, player.transform.position.y + 1);
+        shootDir.Normalize();
+        GameObject knife = Instantiate(prefab, transform.position, Quaternion.identity);
+        knife.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * knifeSpeed, player.transform.position.y);
+        Destroy(knife, knifeLifetime);
+        knifeTimerCurrent = knifeTimer;
+    }
     public void Attack()
     {
         if (timer > attackRate)

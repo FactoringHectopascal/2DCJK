@@ -71,4 +71,9 @@ public class EnemyHealth : MonoBehaviour
         if (collision.gameObject.tag == "bullet")
             TakeDamage(4);
     }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "sword")
+            TakeDamage(6);  
+    }
 }

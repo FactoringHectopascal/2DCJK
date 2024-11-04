@@ -1030,7 +1030,6 @@ GameObject:
   - component: {fileID: 2719172757392937948}
   - component: {fileID: 6633754433276364784}
   - component: {fileID: 5032763576123410400}
-  - component: {fileID: 3410502701659710474}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1275,6 +1274,8 @@ MonoBehaviour:
   timer: 0
   sword: {fileID: 246008716072470744}
   playerDMG: 5
+  prefab: {fileID: 7850247112625956039, guid: b85b6672eb2d2f847b4326519d95a5d5, type: 3}
+  knifeSpeed: 3
 --- !u!114 &7573148440776237079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,7 +1377,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1918
+  m_InstanceId: 74252
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
@@ -1401,17 +1402,3 @@ MonoBehaviour:
   pendant: {fileID: 2884597866186029238}
   glasses: {fileID: 7564591951560126483}
   syringe: {fileID: 1944249373374206218}
---- !u!114 &3410502701659710474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9199821735871390727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf6be18778def9847bd4855bf988ea7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemDesc: {fileID: 0}
-  description: 

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor.Build;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -116,7 +118,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health <= 0)
         {
-            Debug.Log("You Died!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     private IEnumerator Invulnerability()
