@@ -144,6 +144,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "bullet")
             health += 1;
+        text.text = health + "/" + maxHealth;
+        healthBar.fillAmount = health / maxHealth;
     }
 }
 

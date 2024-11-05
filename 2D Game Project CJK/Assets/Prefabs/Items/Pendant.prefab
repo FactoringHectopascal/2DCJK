@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 02d97d2b442031f42b437559a45d7350, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8762415635245996980}
   iW: {fileID: 5032763576123410400, guid: 9d632405776d9784c958601ab5eb7c26, type: 3}
   costText: {fileID: 8861956944576402275}
+  drone: {fileID: 0}
 --- !u!61 &3330728107782690521
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -212,7 +213,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &3179537742490492476
 MonoBehaviour:
