@@ -29,9 +29,9 @@ public class EnemyHealth : MonoBehaviour
             return;
         }
         if (enemyAi.eliteEnemy == true)
-            enemyHealthValue = Random.Range(80, 150);
+            enemyHealthValue = Random.Range(60, 95);
         if (enemyAi.normalEnemy == true)
-            enemyHealthValue = Random.Range(20, 80);
+            enemyHealthValue = Random.Range(50, 80);
         enemyHealthValueMax = enemyHealthValue;
     }
 

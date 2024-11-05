@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
@@ -48,14 +49,14 @@ public class EnemyAI : MonoBehaviour
             normalEnemy = false;
             return;
         }
-        int num = Random.Range(1, 3);
+        int num = Random.Range(1, 5);
         if(num == 1)
         {
             eliteEnemy = true;
             normalEnemy = false;
             spriteRenderer.color = Color.blue;
         }
-        else if (num == 2)
+        else if (num == 3|| num == 2 || num == 4 || num == 5)
         {
             eliteEnemy = false;
             normalEnemy = true;
