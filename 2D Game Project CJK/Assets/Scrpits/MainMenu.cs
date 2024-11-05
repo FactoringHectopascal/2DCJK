@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("jonyRLTesting");
+        SceneManager.LoadScene("LVL1");
     }
     public void QuitGame()
     {
