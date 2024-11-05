@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemWearables : MonoBehaviour
@@ -56,6 +54,6 @@ public class ItemWearables : MonoBehaviour
     }
     public void wearSyringe()
     {
-        syringe.GetComponent<SpriteRenderer>().enabled = true;  
+        syringe.GetComponent<SpriteRenderer>().enabled = true;
     }
 }

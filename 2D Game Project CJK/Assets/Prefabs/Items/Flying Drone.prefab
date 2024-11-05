@@ -121,11 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  enemy: {fileID: 0}
   shootDelay: 2
-  shootRange: 5
+  shootRange: 30
   prefab: {fileID: 2536671266564611604, guid: c5ef27afa818d5a4c9672a1d587a52e1, type: 3}
-  shootSpeed: 3
+  shootSpeed: 15
   bulletLifetime: 2
   chaseSpeed: 5
 --- !u!50 &4661840545253336297

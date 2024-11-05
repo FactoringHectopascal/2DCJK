@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class MoneySystem : MonoBehaviour
 {
-   
+
     [SerializeField]
     public int playerStartingMoney;
     [SerializeField]
@@ -25,7 +23,7 @@ public class MoneySystem : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         int coinAmount = Random.Range(5, 15);
-        if(collision.gameObject.tag == "coin")
+        if (collision.gameObject.tag == "coin")
         {
             playerCurrentMoney += coinAmount;
         }

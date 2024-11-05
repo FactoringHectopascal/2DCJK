@@ -331,6 +331,7 @@ GameObject:
   - component: {fileID: 1072861090473615733}
   - component: {fileID: 1533200885454743606}
   - component: {fileID: 1162493125012690222}
+  - component: {fileID: 3517516963626653749}
   m_Layer: 7
   m_Name: Ghoul
   m_TagString: Enemy
@@ -396,7 +397,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1229342078, guid: a5e45396f6446b84581539104cd723e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -423,9 +424,10 @@ MonoBehaviour:
   enemyHealthValue: 50
   coin: {fileID: 5059283164254345577, guid: 7f7dd740582b259448b30eab55243ce8, type: 3}
   eRB: {fileID: 1072861090473615733}
-  knockBack: 50
+  knockBack: 25
   healthBar: {fileID: 8311721286822401916}
   enemyHealthValueMax: 0
+  boss: 0
 --- !u!114 &1362059379287641279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +455,7 @@ MonoBehaviour:
   coolDownMax: 2
   normalEnemy: 0
   eliteEnemy: 0
+  boss: 0
 --- !u!50 &1072861090473615733
 Rigidbody2D:
   serializedVersion: 4
@@ -546,6 +549,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0392811, y: 2.2433982}
   m_EdgeRadius: 0
+--- !u!70 &3517516963626653749
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5830701900679885352}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12390137, y: -0.76298666}
+  m_Size: {x: 0.8834381, y: 0.8834381}
+  m_Direction: 0
 --- !u!1 &7661097612363655182
 GameObject:
   m_ObjectHideFlags: 0

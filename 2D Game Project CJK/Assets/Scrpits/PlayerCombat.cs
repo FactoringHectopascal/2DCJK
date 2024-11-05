@@ -49,8 +49,6 @@ public class PlayerCombat : MonoBehaviour
             Mathf.Abs(moveX);
         else if (x > 0)
             Mathf.Abs(-moveX);
-        Vector3 shootDir = new Vector3(player.transform.position.x + 1, player.transform.position.y + 1);
-        shootDir.Normalize();
         GameObject knife = Instantiate(prefab, transform.position, Quaternion.identity);
         knife.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * knifeSpeed, player.transform.position.y);
         Destroy(knife, knifeLifetime);

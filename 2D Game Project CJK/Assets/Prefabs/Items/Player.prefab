@@ -1104,7 +1104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2093380480, guid: 1280ba36f79f6ba46bc3b34b5a113f34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   sword: {fileID: 246008716072470744}
   playerDMG: 5
   prefab: {fileID: 7850247112625956039, guid: b85b6672eb2d2f847b4326519d95a5d5, type: 3}
-  knifeSpeed: 3
+  knifeSpeed: 50
 --- !u!114 &7573148440776237079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 74252
+  m_InstanceId: -259452
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}

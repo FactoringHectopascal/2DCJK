@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text;
 using UnityEngine;
 public class EnemyAI : MonoBehaviour
@@ -31,6 +32,8 @@ public class EnemyAI : MonoBehaviour
     public bool normalEnemy;
     public bool eliteEnemy;
     SpriteRenderer spriteRenderer;
+    [SerializeField]
+    bool boss;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,12 @@ public class EnemyAI : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 7);
         eRB = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (boss)
+        {
+            eliteEnemy = false;
+            normalEnemy = false;
+            return;
+        }
         int num = Random.Range(1, 3);
         if(num == 1)
         {
@@ -97,13 +106,13 @@ public class EnemyAI : MonoBehaviour
         if (x < 0)
         {
             playerAttackCenter.transform.localPosition = new Vector2(-Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
 
         }
         else if (x > 0)
         {
             playerAttackCenter.transform.localPosition = new Vector2(Mathf.Abs(playerAttackCenter.transform.localPosition.x), playerAttackCenter.transform.localPosition.y);
-            GetComponent<SpriteRenderer>().flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
         coolDown -= Time.deltaTime;
         int xAnim = (int)eRB.velocity.x;

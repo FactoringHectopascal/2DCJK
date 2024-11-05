@@ -16,11 +16,18 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField]
     public Image healthBar;
     public float enemyHealthValueMax;
+    [SerializeField]
+    bool boss;
     // Start is called before the first frame update
     void Start()
     {
         eRB = GetComponent<Rigidbody2D>();
         enemyAi = GetComponent<EnemyAI>();
+        if (boss)
+        {
+            enemyHealthValue = enemyHealthValueMax;
+            return;
+        }
         if (enemyAi.eliteEnemy == true)
             enemyHealthValue = Random.Range(80, 150);
         if (enemyAi.normalEnemy == true)
@@ -73,7 +80,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "sword")
+        if(collision.gameObject.tag == "throwingKnife")
             TakeDamage(6);  
     }
 }
