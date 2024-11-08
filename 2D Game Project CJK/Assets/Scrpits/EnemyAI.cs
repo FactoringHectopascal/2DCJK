@@ -1,6 +1,3 @@
-using System.Diagnostics;
-using System.Text;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
@@ -50,13 +47,13 @@ public class EnemyAI : MonoBehaviour
             return;
         }
         int num = Random.Range(1, 5);
-        if(num == 1)
+        if (num == 1)
         {
             eliteEnemy = true;
             normalEnemy = false;
             spriteRenderer.color = Color.blue;
         }
-        else if (num == 3|| num == 2 || num == 4 || num == 5)
+        else if (num == 3 || num == 2 || num == 4 || num == 5)
         {
             eliteEnemy = false;
             normalEnemy = true;
@@ -90,7 +87,7 @@ public class EnemyAI : MonoBehaviour
             //if the player is NOT close, stop moving & we're not trying to return home, stop moving
             eRB.velocity = Vector3.zero;
         }
-        if(grounded == false)
+        if (grounded == false)
         {
             eRB.velocity = Vector3.zero;
             eRB.gravityScale = 25f;
@@ -134,9 +131,9 @@ public class EnemyAI : MonoBehaviour
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(3);
                 coolDown = coolDownMax;
             }
-            
+
         }
-        if(coolDown <= 0 && eliteEnemy)
+        if (coolDown <= 0 && eliteEnemy)
         {
             Collider2D[] playerAttackDetection = Physics2D.OverlapCircleAll(playerAttackCenter.transform.position, playerAttackRadius, playerLayer);
             foreach (Collider2D player in playerAttackDetection)
@@ -144,7 +141,7 @@ public class EnemyAI : MonoBehaviour
                 player.GetComponent<PlayerHealth>().PlayerTakeDamage(6);
                 coolDown = coolDownMax;
             }
-            
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

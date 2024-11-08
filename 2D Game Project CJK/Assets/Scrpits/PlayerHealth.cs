@@ -1,15 +1,13 @@
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using UnityEditor.Build;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header ("Health")]
+    [Header("Health")]
     public float health = 30;
     [SerializeField]
     public float maxHealth = 30;
@@ -63,13 +61,13 @@ public class PlayerHealth : MonoBehaviour
             facingRight = true;
             facingLeft = false;
         }
-        if(health > maxHealth)
+        if (health > maxHealth)
         {
             health = maxHealth;
             text.text = health + "/" + maxHealth;
             healthBar.fillAmount = health / maxHealth;
         }
-        if(shieldCurrentCooldown <= 0 && shieldGot)
+        if (shieldCurrentCooldown <= 0 && shieldGot)
         {
             shield = true;
             shieldSprite.GetComponent<SpriteRenderer>().enabled = true;
@@ -80,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     public void PlayerTakeDamage(float damage)
-    {   
+    {
         if (GetComponent<PlatformerMovement>().rolling > 0f)
         {
             return;
@@ -102,7 +100,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
         else
-        { 
+        {
             health -= damage;
             StartCoroutine(Invulnerability());
             text.text = health + "/" + maxHealth;

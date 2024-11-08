@@ -8,7 +8,7 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField]
     public float moveSpeed = 3;
     [SerializeField]
-    public float lookAheadDistance = 5f;
+    public float lookAheadDistance = 0f;
     [SerializeField]
     public float lookAheadSpeed = 3f;
     [SerializeField]

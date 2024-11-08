@@ -80,7 +80,7 @@ public class EnemyHealth : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "throwingKnife")
-            TakeDamage(6);  
+        if (collision.gameObject.tag == "throwingKnife")
+            TakeDamage(6);
     }
 }

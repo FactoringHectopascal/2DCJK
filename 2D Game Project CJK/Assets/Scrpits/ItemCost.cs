@@ -1,9 +1,5 @@
-using System.Collections;
-using System.ComponentModel;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ItemCost : MonoBehaviour
 {
@@ -44,12 +40,13 @@ public class ItemCost : MonoBehaviour
         playerCurrentMoney = moneySystem.playerCurrentMoney;
     }
     public void OnTriggerStay2D(Collider2D collision)
-    {   if(collision.gameObject.layer == 8)
+    {
+        if (collision.gameObject.layer == 8)
         {
-        spriteRenderer.color = Color.gray;
+            spriteRenderer.color = Color.gray;
         }
         playerCurrentMoney = moneySystem.playerCurrentMoney;
-        if(playerCurrentMoney >= itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
+        if (playerCurrentMoney >= itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
             Debug.Log("A Successful Purchase!");
             playerCurrentMoney -= itemCost;
@@ -76,7 +73,7 @@ public class ItemCost : MonoBehaviour
                     if (player.GetComponent<PlayerHealth>().shieldGot == true)
                         player.GetComponent<PlayerHealth>().shieldCooldown -= 0.25f;
                     else
-                    player.GetComponent<PlayerHealth>().shieldGot = true;
+                        player.GetComponent<PlayerHealth>().shieldGot = true;
                     player.GetComponent<PlayerHealth>().shield = true;
                     iW.wearHeadphones();
                     break;
@@ -86,7 +83,7 @@ public class ItemCost : MonoBehaviour
                     break;
                 case 6:
                     player.GetComponent<PlayerCombat>().attackRadius += 0.099f;
-                    sword.transform.localScale += new Vector3 (0.094f, 0.094f, 0);
+                    sword.transform.localScale += new Vector3(0.094f, 0.094f, 0);
                     iW.wearPin();
                     break;
                 case 7:
@@ -113,16 +110,16 @@ public class ItemCost : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        else if(playerCurrentMoney < itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
+        else if (playerCurrentMoney < itemCost && collision.gameObject.tag == "Player" && Input.GetKey(KeyCode.E))
         {
             return;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if (collision.gameObject.layer == 8)
         {
-        spriteRenderer.color = Color.white;
+            spriteRenderer.color = Color.white;
         }
     }
 }
